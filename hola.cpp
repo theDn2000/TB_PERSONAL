@@ -15,6 +15,7 @@ struct Person {
     string dni;
     string mail;
     Car car;
+    bool regalo;
 };
 
 void printPerson(Person p) 
@@ -45,11 +46,13 @@ void PrintPerson_optimus_solved(Person const &p)
 }
 
 // Print the name of the persons that are not minors
-void print_adults(vector<Person> const &personas)
+void print_adults(vector<Person> const &personas) // En el caso de no ser una funcion, podemos poner &p para que no se copie
     {
-        for (Person p : personas) 
+        for (auto p : personas)  // Como el vector es de personas, p es de tipo persona. Auto es para que el compilador lo deduzca
         {
             if (p.age >= 18) {
+                // Pon el parametro regalo a false
+                p.regalo = false;
                 cout << p.name << endl;
             }
         }
@@ -79,11 +82,11 @@ int main() {
     bool myBoolean{true}; // Verdadero o falso
 
     // Structs
-    Person alberto{"Alberto", 30, "12345678A", "alberto@mail.com", Car{"Seat", "1234ABC"}}; // Estructuras
-    Person juan = {"Juan", 15, "12345678A", "juan@mail.com", Car{"Mini", "5678DEF"}};
+    Person alberto{"Alberto", 30, "12345678A", "alberto@mail.com", Car{"Seat", "1234ABC"}, true}; // Estructuras
+    Person juan = {"Juan", 15, "12345678A", "juan@mail.com", Car{"Mini", "5678DEF"}, true};
     Person jose = {"Jose", 74, "12345678A", "jose@mail.com", Car{"Renault", "5678DEF"}};
-    Person marta = {"Marta", 51, "12345678A", "marta@mail.com", Car{"Citroen", "5678DEF"}};
-    Person claudia = {"Claudia", 8, "12345678A", "claudia@mail.com", Car{"Ferrari", "5678DEF"}};
+    Person marta = {"Marta", 51, "12345678A", "marta@mail.com", Car{"Citroen", "5678DEF"}, true};
+    Person claudia = {"Claudia", 8, "12345678A", "claudia@mail.com", Car{"Ferrari", "5678DEF"}, true};
 
     vector<Person> personas{alberto, juan};
     personas.push_back(jose);
