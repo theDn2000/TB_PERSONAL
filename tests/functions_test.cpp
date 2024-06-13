@@ -36,6 +36,10 @@ TEST(SeparateStringTest, separate_string_correctamente)
     std::string s = "(hola)(que)(tal)";
     std::vector<std::string> v = separate_string(s);
     EXPECT_EQ(v.size(), 3);
+    if (v.size() != 3)
+    {
+        return;
+    }
     EXPECT_EQ(v[0], "hola");
     EXPECT_EQ(v[1], "que");
     EXPECT_EQ(v[2], "tal");
