@@ -307,7 +307,6 @@ int main() {
 
 
     // TESTS UNITARIOS Y TEST DRIVEN DEVELOPMENT
-    std::cout << suma(3, 4) << std::endl;
 
 
 
