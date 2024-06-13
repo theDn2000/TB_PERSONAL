@@ -1,8 +1,14 @@
 #pragma once
 
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
 // Suma
 int suma(int a, int b);
 int sumaP(int a, int b);
 
 // Función parsea string
-std::vector<std::string> separate_string(std::string & s)
+vector<string> separate_string(string & s)

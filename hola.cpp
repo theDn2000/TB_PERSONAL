@@ -9,7 +9,7 @@
 using namespace std;
 
 
-
+/*
 struct Car {
     string brand;
     string plate;
@@ -82,7 +82,7 @@ void print_adults(vector<Person> const &personas) // En el caso de no ser una fu
             }
         }
     }
-
+*/
 int main() {
 /*
     int myNumber{3};
