@@ -42,6 +42,11 @@ vector<string> separate_string(string & s)
     {
         throw std::runtime_error("No termina con parentesis");
     }
+    // Comprueba que no haya paréntesis sin ningún carácter dentro
+    if (s[pos] == '(' && s[pos+1] == ')')
+    {
+        throw std::runtime_error("Parentesis vacio");
+    }
 
     while (pos < s.size())
     {
@@ -65,13 +70,8 @@ vector<string> separate_string(string & s)
         }
         else
         {
-            // Comprueba que no haya paréntesis sin ningún carácter dentro
-            if (s[pos] == '(' && s[pos+1] == ')')
-            {
-                throw std::runtime_error("Parentesis vacio");
-            }
             // Comprueba que no hay palabras sin parentesis
-            else if (level == 0 && s[pos] != ' ')
+            if (level == 0 && s[pos] != ' ')
             {
                 throw std::runtime_error("Palabra sin parentesis");
             }
