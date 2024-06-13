@@ -32,6 +32,12 @@ vector<string> separate_string(string & s)
     int pos{0};
     int level{0};
     string temp;
+    // Compruebo que empieza con parentesis
+    if (s[0] != '(')
+    {
+        throw std::runtime_error("No empieza con parentesis");
+    }
+
     while (pos < s.size())
     {
         if (s[pos] == '(')
@@ -58,5 +64,14 @@ vector<string> separate_string(string & s)
         }
         pos++;
     }
-    return v;
+    
+    // Compruebo que se han abierto y cerrado los mismos parentesis
+    if (level != 0)
+    {
+        throw std::runtime_error("No se han abierto y cerrado los mismos parentesis");
+    }
+    else
+    {
+        return v;
+    }
 }
