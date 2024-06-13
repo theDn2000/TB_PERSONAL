@@ -4,6 +4,8 @@
 
 #include <algorithm>
 
+#include "functions.h"
+
 using namespace std;
 
 
@@ -103,6 +105,9 @@ vector<string> separate_string_parenthesis(string & s)
 }
 
 
+
+
+
 // Print the name of the persons that are not minors
 void print_adults(vector<Person> const &personas) // En el caso de no ser una funcion, podemos poner &p para que no se copie
     {
@@ -160,6 +165,9 @@ int main() {
     //PrintPerson_optimus_solved(alberto);
     //std::cout << "Hola mundo, esto es una prueba secundaria" << std::endl;
     
+
+/*
+    // STRINGS
     // Ejercicio 1: Crear string y remplazar por _
     std::string s{"Hello"};
 
@@ -295,8 +303,11 @@ int main() {
     {
         cout << s << endl;
     }
+*/
 
 
+    // TESTS UNITARIOS Y TEST DRIVEN DEVELOPMENT
+    std::cout << suma(3, 4) << std::endl;
 
 
 
