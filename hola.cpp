@@ -4,6 +4,7 @@
 
 #include <algorithm>
 
+// Include the functions
 #include "functions.h"
 
 using namespace std;
