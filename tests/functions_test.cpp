@@ -48,11 +48,12 @@ TEST(SeparateStringTest, separate_string_correctamente)
 // Compruebo que separa por niveles
 TEST(SeparateStringTest, separate_string_niveles)
 {
-    std::string s = "((hola)(que))(tal)";
+    std::string s = "((hola)(que))(tal)( )";
     std::vector<std::string> v = separate_string(s);
-    EXPECT_EQ(v.size(), 2);
+    EXPECT_EQ(v.size(), 3);
     EXPECT_EQ(v[0], "(hola)(que)");
     EXPECT_EQ(v[1], "tal");
+    EXPECT_EQ(v[2], " ");
 }
 
 //Compruebo que da error si no inicia con parentesis
