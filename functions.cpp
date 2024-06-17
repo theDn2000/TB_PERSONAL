@@ -48,6 +48,7 @@ vector<string> separate_string(string & s)
         throw std::runtime_error("Parentesis vacio");
     }
 
+    // Recorro el string
     while (pos < s.size())
     {
         if (s[pos] == '(')
