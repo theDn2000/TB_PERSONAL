@@ -12,12 +12,12 @@ void modificaP(shared_ptr<int> pX)
     *pX = 11;
 }
 
-int suma(int a, int b)
+int sumaa(int a, int b)
 {
     return a + b;
 }
 
-int sumaP(shared_ptr<int> pA, shared_ptr<int> pB)
+int sumaaP(shared_ptr<int> pA, shared_ptr<int> pB)
 {
     return *pA + *pB;
 }

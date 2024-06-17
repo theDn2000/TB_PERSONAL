@@ -1,6 +1,8 @@
 
 #include "gtest/gtest.h"
-//#include "../functions.h"
+#include "../functions.h"
+#include "../punteros/functions.h"
+
 
 using namespace std;
 /*
@@ -100,7 +102,7 @@ TEST(SumaTest, suma_correctamente)
 {
     int a = 3;
     int b = 4;
-    EXPECT_EQ(suma(3, 4), 7);
+    EXPECT_EQ(sumaa(3, 4), 7);
 }
 
 // Compruebo que al pasar dos punteros a la función sumaP, devuelve la suma de ambos
@@ -108,5 +110,5 @@ TEST(SumaTest, sumaP_correctamente)
 {
     std::shared_ptr<int> pA = std::make_shared<int>(5);
     std::shared_ptr<int> pB = std::make_shared<int>(5);
-    EXPECT_EQ(sumaP(pA, pB), 10);
+    EXPECT_EQ(sumaaP(pA, pB), 10);
 }
