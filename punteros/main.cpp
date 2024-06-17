@@ -43,8 +43,8 @@ int main()
     cout << "pA modificado: " << *pA << endl;
     cout << "pB: " << *pB << endl;
 
-    int ab = suma(a, b);
-    int pApB = sumaP(pA, pB);
+    int ab = sumaa(a, b);
+    int pApB = sumaaP(pA, pB);
 
     cout << "a + b: " << ab << endl;
     cout << "pA + pB: " << pApB << endl;
