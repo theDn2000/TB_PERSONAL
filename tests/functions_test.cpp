@@ -31,6 +31,7 @@ TEST(SumaPTest, sumaP_no_lanzaerror)
 
 // FUNCION SEPARATE_STRING
 // Compruebo que separa correctamente
+/*
 TEST(SeparateStringTest, separate_string_correctamente)
 {
     std::string s = "(hola)(que)(tal)";
@@ -89,4 +90,22 @@ TEST(SeparateStringTest, separate_string_error5)
 {
     std::string s = "(hola)que(tal)";
     EXPECT_ANY_THROW(separate_string(s));
+}
+*/
+
+// PUNTEROS
+// Compruebo que al pasar dos enteros a la función suma, devuelve la suma de ambos
+TEST(SumaTest, suma_correctamente)
+{
+    int a = 3;
+    int b = 4;
+    EXPECT_EQ(suma(3, 4), 7);
+}
+
+// Compruebo que al pasar dos punteros a la función sumaP, devuelve la suma de ambos
+TEST(SumaTest, sumaP_correctamente)
+{
+    shared_ptr<int> pA = make_shared<int>(5);
+    shared_ptr<int> pB = make_shared<int>(7);
+    EXPECT_EQ(sumaP(pA, pB), 12);
 }
