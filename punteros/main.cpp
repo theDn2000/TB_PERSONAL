@@ -72,11 +72,11 @@ int main()
     cout << "pA modificado: " << *pA << endl;
     cout << "pB: " << *pB << endl;
 
-    int ab = sumaa(a, b);
-    int pApB = sumaaP(pA, pB);
+    //int ab = sumaa(a, b);
+    //int pApB = sumaaP(pA, pB);
 
-    cout << "a + b: " << ab << endl;
-    cout << "pA + pB: " << pApB << endl;
+    //cout << "a + b: " << ab << endl;
+    //cout << "pA + pB: " << pApB << endl;
 
     // Personas
     // Creamos personas
