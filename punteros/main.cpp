@@ -24,11 +24,11 @@ struct Person
     bool esAdulto;
 };
 
-// Personas adultas
+// Personas adultas: con punteros
 vector<shared_ptr<Person>> personas_adultas(vector<shared_ptr<Person>> &personas)
 {
     vector<shared_ptr<Person>> personas_adultas;
-    for (auto p : personas)
+    for (auto const &p : personas)
     {
         if (p->age >= 18)
         {
@@ -36,18 +36,41 @@ vector<shared_ptr<Person>> personas_adultas(vector<shared_ptr<Person>> &personas
         }
     }
     // Muestra en pantalla las personas adultas
-    for (auto p : personas_adultas)
+    for (auto const &p : personas_adultas)
     {
         cout << "Nombre: " << (*p).name << endl;
     }
     // Modifica el valor esAdulto de las personas adultas
-    for (auto p : personas_adultas)
+    for (auto const &p : personas_adultas)
     {
         p->esAdulto = true;
     }
     return personas_adultas;
 }
 
+// Personas adultas: con referencias
+vector<Person> personas_adultas(vector<Person> &personas)
+{
+    vector<Person> personas_adultas;
+    for (auto p : personas)
+    {
+        if (p.age >= 18)
+        {
+            personas_adultas.push_back(p);
+        }
+    }
+    // Muestra en pantalla las personas adultas
+    for (auto p : personas_adultas)
+    {
+        cout << "Nombre: " << p.name << endl;
+    }
+    // Modifica el valor esAdulto de las personas adultas
+    for (auto &p : personas_adultas)
+    {
+        p.esAdulto = true;
+    }
+    return personas_adultas;
+}
 
 
 
@@ -86,13 +109,27 @@ int main()
     Person marta = {"Marta", 51, "12345678A", "marta@mail.com", false};
     Person claudia = {"Claudia", 8, "12345678A", "claudia@mail.com", false};
 
+    // Vector de estructuras personas
+    vector<Person> personas{alberto, juan, jose, marta, claudia};
+\
+    // Creamos punteros a personas
     shared_ptr<Person> p1 = make_shared<Person>(alberto);
     shared_ptr<Person> p2 = make_shared<Person>(juan);
     shared_ptr<Person> p3 = make_shared<Person>(jose);
     shared_ptr<Person> p4 = make_shared<Person>(marta);
     shared_ptr<Person> p5 = make_shared<Person>(claudia);
 
+    // Vector de punteros a estructuras personas
     vector<shared_ptr<Person>> ppersonas{p1, p2, p3, p4, p5};
+
+
+
+
+
+
+
+
+
 
     vector<shared_ptr<Person>> ppersonas_adultas = personas_adultas(ppersonas);
 
