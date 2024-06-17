@@ -96,7 +96,7 @@ int main()
 
     vector<shared_ptr<Person>> ppersonas_adultas = personas_adultas(ppersonas);
 
-    for (auto p : ppersonas)
+    for (auto p : ppersonas_adultas)
     {
         cout << "Nombre: " << p->name << " es adulto: " << p->esAdulto << endl;
     }
