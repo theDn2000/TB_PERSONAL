@@ -28,7 +28,6 @@ add_executable(
   main.cpp
   functions_test.cpp
   ../functions.cpp
-  ../punteros/main.cpp
 )
 target_link_libraries(
   runTests

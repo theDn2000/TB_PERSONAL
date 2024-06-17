@@ -1,6 +1,8 @@
 #include <memory>
 #include <iostream>
 
+#include "functions.h"
+
 using namespace std;
 
 void modifica(int x)
@@ -12,15 +14,42 @@ void modificaP(shared_ptr<int> pX)
     *pX = 11;
 }
 
-int sumaa(int a, int b)
+// Clase persona
+struct Person
 {
-    return a + b;
+    string name;
+    int age;
+    string dni;
+    string mail;
+    bool esAdulto;
+};
+
+// Personas adultas
+vector<shared_ptr<Person>> personas_adultas(vector<shared_ptr<Person>> &personas)
+{
+    vector<shared_ptr<Person>> personas_adultas;
+    for (auto p : personas)
+    {
+        if (p->age >= 18)
+        {
+            personas_adultas.push_back(p);
+        }
+    }
+    // Muestra en pantalla las personas adultas
+    for (auto p : personas_adultas)
+    {
+        cout << "Nombre: " << (*p).name << endl;
+    }
+    // Modifica el valor esAdulto de las personas adultas
+    for (auto p : personas_adultas)
+    {
+        p->esAdulto = true;
+    }
+    return personas_adultas;
 }
 
-int sumaaP(shared_ptr<int> pA, shared_ptr<int> pB)
-{
-    return *pA + *pB;
-}
+
+
 
 int main()
 {
@@ -48,6 +77,30 @@ int main()
 
     cout << "a + b: " << ab << endl;
     cout << "pA + pB: " << pApB << endl;
+
+    // Personas
+    // Creamos personas
+    Person alberto{"Alberto", 30, "12345678A", "alberto@mail.com", false}; // Estructuras
+    Person juan = {"Juan", 15, "12345678A", "juan@mail.com", false};
+    Person jose = {"Jose", 74, "12345678A", "jose@mail.com", false};
+    Person marta = {"Marta", 51, "12345678A", "marta@mail.com", false};
+    Person claudia = {"Claudia", 8, "12345678A", "claudia@mail.com", false};
+
+    shared_ptr<Person> p1 = make_shared<Person>(alberto);
+    shared_ptr<Person> p2 = make_shared<Person>(juan);
+    shared_ptr<Person> p3 = make_shared<Person>(jose);
+    shared_ptr<Person> p4 = make_shared<Person>(marta);
+    shared_ptr<Person> p5 = make_shared<Person>(claudia);
+
+    vector<shared_ptr<Person>> ppersonas{p1, p2, p3, p4, p5};
+
+    vector<shared_ptr<Person>> ppersonas_adultas = personas_adultas(ppersonas);
+
+    for (auto p : ppersonas)
+    {
+        cout << "Nombre: " << p->name << " es adulto: " << p->esAdulto << endl;
+    }
+
 
     return 0;
 }

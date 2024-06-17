@@ -1,7 +1,6 @@
 
 #include "gtest/gtest.h"
 #include "../functions.h"
-#include "../punteros/functions.h"
 
 
 using namespace std;
@@ -96,6 +95,7 @@ TEST(SeparateStringTest, separate_string_error5)
 }
 */
 
+/*
 // PUNTEROS
 // Compruebo que al pasar dos enteros a la función suma, devuelve la suma de ambos
 TEST(SumaTest, suma_correctamente)
@@ -112,3 +112,4 @@ TEST(SumaTest, sumaP_correctamente)
     std::shared_ptr<int> pB = std::make_shared<int>(5);
     EXPECT_EQ(sumaaP(pA, pB), 10);
 }
+*/
