@@ -39,7 +39,9 @@ int main()
     modificaP(pA);
 
     cout << "a modificado: " << a << endl;
+    cout << "b: " << b << endl; // b no se modifica porque es una copia de a
     cout << "pA modificado: " << *pA << endl;
+    cout << "pB: " << *pB << endl;
 
     int ab = suma(a, b);
     int pApB = sumaP(pA, pB);
