@@ -2,6 +2,7 @@
 #include "gtest/gtest.h"
 #include "../functions.h"
 
+using namespace std;
 /*
 // SUMA
 TEST(SumaTest, suma_correctamente)
