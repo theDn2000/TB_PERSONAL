@@ -106,7 +106,7 @@ TEST(SumaTest, suma_correctamente)
 // Compruebo que al pasar dos punteros a la función sumaP, devuelve la suma de ambos
 TEST(SumaTest, sumaP_correctamente)
 {
-    std::shared_ptr<int> pA = make_shared<int>(5);
-    std::shared_ptr<int> pB = pA;
+    std::shared_ptr<int> pA = std::make_shared<int>(5);
+    std::shared_ptr<int> pB = std::make_shared<int>(5);
     EXPECT_EQ(sumaP(pA, pB), 10);
 }
