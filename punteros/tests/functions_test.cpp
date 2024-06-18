@@ -114,4 +114,23 @@ TEST(UnityTest, unity_union)
     EXPECT_FALSE(include(suma,p4));
 }
 
+// Test de difference
+
+// Compruebo que si difference, devuelve el vector con los elementos que no estan en el segundo vector
+TEST(DifferenceTest, difference_difference)
+{
+    shared_ptr<Person> p1 = make_shared<Person>("Juan", 30, "12345678A", "juan@mail.com", false);
+    shared_ptr<Person> p2 = make_shared<Person>(Person{"Pedro", 30, "12345678A", "pedro@mail.com", false});
+    shared_ptr<Person> p3 = make_shared<Person>(Person{"Maria", 40, "12345678A", "maria@mail,com", false});
+    shared_ptr<Person> p4 = make_shared<Person>(Person{"Ana", 50, "12345678A", "ana@mail.com", false});
+
+    vector<shared_ptr<Person>> personas = {p1, p2, p3};
+    vector<shared_ptr<Person>> personas2 = {p2, p3};
+
+    vector<shared_ptr<Person>> diferencia = difference(personas, personas2);
+    EXPECT_EQ(diferencia.size(), 1);
+    EXPECT_TRUE(include(diferencia,p1));
+    EXPECT_FALSE(include(diferencia,p2));
+}
+
 
