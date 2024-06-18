@@ -21,3 +21,6 @@ struct Person
 int sumaa(int a, int b);
 int sumaaP(shared_ptr<int> pA, shared_ptr<int> pB);
 
+// Include personas
+bool include(vector<shared_ptr<Person>> const &personas, shared_ptr<Person> const &p);
+
