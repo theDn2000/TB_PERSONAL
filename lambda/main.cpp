@@ -20,7 +20,7 @@ int main ()
     {
         return a - b;
     };
-    
+
     function<int(int,int)> multiplicacion = [](int a, int b)
     {
         return a * b;
@@ -28,6 +28,9 @@ int main ()
 
     auto h = operacion(1, 2, suma); // Función lambda o funcion de callback
     auto m = operacion(1, 2, multiplicacion);
+
+    cout << "Suma: " << h << endl;
+    cout << "Multiplicación: " << m << endl;
 
     return 0;
 }
