@@ -24,3 +24,6 @@ int sumaaP(shared_ptr<int> pA, shared_ptr<int> pB);
 // Include personas
 bool include(vector<shared_ptr<Person>> const &personas, shared_ptr<Person> const &p);
 
+// Sobre carga de funciones, mismo nombre, diferentes parámetros
+bool include(vector<shared_ptr<Person>> const &personas, vector<shared_ptr<Person>> const &personas2);
+

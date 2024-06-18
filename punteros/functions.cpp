@@ -29,3 +29,16 @@ bool include(vector<shared_ptr<Person>> const &personas, shared_ptr<Person> cons
     }
     return false;
 }
+
+// Sobre carga de funciones, mismo nombre, diferentes parámetros
+bool include(vector<shared_ptr<Person>> const &personas, vector<shared_ptr<Person>> const &personas2)
+{
+    for (auto const &p: personas2)
+    {
+        if (include(personas, p)!=true) 
+        {
+            return false;
+        }
+    }
+    return true;
+}
