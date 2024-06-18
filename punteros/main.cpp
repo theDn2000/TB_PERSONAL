@@ -14,16 +14,6 @@ void modificaP(shared_ptr<int> pX)
     *pX = 11;
 }
 
-// Clase persona
-struct Person
-{
-    string name;
-    int age;
-    string dni;
-    string mail;
-    bool esAdulto;
-};
-
 // Personas adultas: con punteros
 vector<shared_ptr<Person>> personas_adultas(vector<shared_ptr<Person>> &personas)
 {
@@ -48,29 +38,18 @@ vector<shared_ptr<Person>> personas_adultas(vector<shared_ptr<Person>> &personas
     return personas_adultas;
 }
 
-// Personas adultas: con referencias
-vector<Person> personas_adultas(vector<Person> &personas)
+bool include(vector<shared_ptr<Person>> const &personas, shared_ptr<Person> const &p)
 {
-    vector<Person> personas_adultas;
-    for (auto p : personas)
+    for (auto const &persona : personas)
     {
-        if (p.age >= 18)
+        if (persona == p)
         {
-            personas_adultas.push_back(p);
+            return true;
         }
     }
-    // Muestra en pantalla las personas adultas
-    for (auto p : personas_adultas)
-    {
-        cout << "Nombre: " << p.name << endl;
-    }
-    // Modifica el valor esAdulto de las personas adultas
-    for (auto &p : personas_adultas)
-    {
-        p.esAdulto = true;
-    }
-    return personas_adultas;
+    return false;
 }
+
 
 
 
@@ -118,9 +97,16 @@ int main()
     shared_ptr<Person> p3 = make_shared<Person>(jose);
     shared_ptr<Person> p4 = make_shared<Person>(marta);
     shared_ptr<Person> p5 = make_shared<Person>(claudia);
+    // Hay dos juanes, con las mismas propiedades pero con distinta dirección de memoria
+    shared_ptr<Person> p6 = make_shared<Person>(juan); // El otro juan
 
-    // Vector de punteros a estructuras personas
+    // Vector de punteros a estructuras personas (no añadimos al otro juan)
     vector<shared_ptr<Person>> ppersonas{p1, p2, p3, p4, p5};
+
+    // Comprobamos si un puntero a persona está en el vector de punteros a personas
+    cout << "Juan está en el vector de punteros a personas?: " << include(ppersonas, p2) << endl;
+    // Comprobamos si un puntero a persona está en el vector de punteros a personas
+    cout << "El otro Juan está en el vector de punteros a personas?: " << include(ppersonas, p6) << endl;
 
 
 
