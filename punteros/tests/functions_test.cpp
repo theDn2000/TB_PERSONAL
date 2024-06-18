@@ -77,3 +77,41 @@ TEST(IntersectionTest, intersection_interseccion)
     EXPECT_TRUE(include(interseccion, p3));
 }
 
+// Compruebo que si no interseccion, devuelve vector vacio
+TEST(IntersectionTest, intersection_no_interseccion)
+{
+    shared_ptr<Person> p1 = make_shared<Person>("Juan", 30, "12345678A", "juan@mail.com", false);
+    shared_ptr<Person> p2 = make_shared<Person>(Person{"Pedro", 30, "12345678A", "pedro@mail.com", false});
+    shared_ptr<Person> p3 = make_shared<Person>(Person{"Maria", 40, "12345678A", "maria@mail,com", false});
+    shared_ptr<Person> p4 = make_shared<Person>(Person{"Ana", 50, "12345678A", "ana@mail.com", false});
+
+    vector<shared_ptr<Person>> personas = {p1, p2};
+    vector<shared_ptr<Person>> personas2 = {p3, p4};
+
+    vector<shared_ptr<Person>> interseccion = intersection(personas, personas2);
+    EXPEXT_EQ(interseccion.size(), 0);
+    EXPECT_FALSE(include(interseccion,p1));
+    EXPECT_FALSE(include(interseccion,p2));
+}
+
+// Test de unity
+
+// Compruebo que si union, devuelve vector con elementos de ambos vectores
+TEST(UnityTest, unity_union)
+{
+    shared_ptr<Person> p1 = make_shared<Person>("Juan", 30, "12345678A", "juan@mail.com", false);
+    shared_ptr<Person> p2 = make_shared<Person>(Person{"Pedro", 30, "12345678A", "pedro@mail.com", false});
+    shared_ptr<Person> p3 = make_shared<Person>(Person{"Maria", 40, "12345678A", "maria@mail,com", false});
+    shared_ptr<Person> p4 = make_shared<Person>(Person{"Ana", 50, "12345678A", "ana@mail.com", false});
+
+    vector<shared_ptr<Person>> personas = {p1, p2};
+    vector<shared_ptr<Person>> personas2 = {p3};
+
+    vector<shared_ptr<Person>> suma = unity(personas, personas2);
+    EXPEXT_EQ(unity.size(), 3);
+    EXPECT_TRUE(include(suma,p1));
+    EXPECT_TRUE(include(suma,p3));
+    EXPECT_FALSE(include(suma,p4));
+}
+
+
