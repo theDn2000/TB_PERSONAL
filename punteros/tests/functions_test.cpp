@@ -127,7 +127,7 @@ TEST(DifferenceTest, difference_difference)
     vector<shared_ptr<Person>> personas = {p1, p2, p3};
     vector<shared_ptr<Person>> personas2 = {p2, p3};
 
-    vector<shared_ptr<Person>> diferencia = difference(personas2, personas);
+    vector<shared_ptr<Person>> diferencia = difference(personas, personas2);
     EXPECT_EQ(diferencia.size(), 1);
 }
 
