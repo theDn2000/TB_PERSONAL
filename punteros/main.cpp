@@ -38,18 +38,6 @@ vector<shared_ptr<Person>> personas_adultas(vector<shared_ptr<Person>> &personas
     return personas_adultas;
 }
 
-bool include(vector<shared_ptr<Person>> const &personas, shared_ptr<Person> const &p)
-{
-    for (auto const &persona : personas)
-    {
-        if (persona == p)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
 
 
 
