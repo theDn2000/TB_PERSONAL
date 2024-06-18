@@ -45,7 +45,7 @@ TEST(IncludeTest_2, include_vector_incluye)
 }
 
 // Compruebo que si no incluye un vector de personas, devuelve false
-TEST(IncludeTest_2, include_vector_incluye)
+TEST(IncludeTest_2, include_vector_no_incluye)
 {
     shared_ptr<Person> p1 = make_shared<Person>("Juan", 30, "12345678A", "juan@mail.com", false);
     shared_ptr<Person> p2 = make_shared<Person>(Person{"Pedro", 30, "12345678A", "pedro@mail.com", false});
