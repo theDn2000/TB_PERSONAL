@@ -27,3 +27,6 @@ bool include(vector<shared_ptr<Person>> const &personas, shared_ptr<Person> cons
 // Sobre carga de funciones, mismo nombre, diferentes parámetros
 bool include(vector<shared_ptr<Person>> const &personas, vector<shared_ptr<Person>> const &personas2);
 
+vector<shared_ptr<Person>> intersection(vector<shared_ptr<Person>> const &personas, vector<shared_ptr<Person>> const &personas2);
+vector<shared_ptr<Person>> unity(vector<shared_ptr<Person>> const &personas, vector<shared_ptr<Person>> const &personas2);
+vector<shared_ptr<Person>> difference(vector<shared_ptr<Person>> const &personas, vector<shared_ptr<Person>> const &personas2);
