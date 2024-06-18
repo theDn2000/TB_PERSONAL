@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(SOURCES
     main.cpp
+    functions.cpp
 )
 
 add_executable(PunterosInteligentes ${SOURCES})
