@@ -89,7 +89,7 @@ TEST(IntersectionTest, intersection_no_interseccion)
     vector<shared_ptr<Person>> personas2 = {p3, p4};
 
     vector<shared_ptr<Person>> interseccion = intersection(personas, personas2);
-    EXPEXT_EQ(interseccion.size(), 0);
+    EXPECT_EQ(interseccion.size(), 0);
     EXPECT_FALSE(include(interseccion,p1));
     EXPECT_FALSE(include(interseccion,p2));
 }
