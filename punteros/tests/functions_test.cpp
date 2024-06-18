@@ -129,6 +129,8 @@ TEST(DifferenceTest, difference_difference)
 
     vector<shared_ptr<Person>> diferencia = difference(personas, personas2);
     EXPECT_EQ(diferencia.size(), 1);
+    EXPECT_TRUE(include(diferencia,p1));
+    EXPECT_FALSE(include(diferencia,p2));
 }
 
 
