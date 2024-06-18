@@ -74,13 +74,22 @@ vector<shared_ptr<Person>> unity(vector<shared_ptr<Person>> const &personas, vec
 // Diferencia
 vector<shared_ptr<Person>> difference(vector<shared_ptr<Person>> const &personas, vector<shared_ptr<Person>> const &personas2)
 {
-    vector<shared_ptr<Person>> diferencia_vector;
+    vector<shared_ptr<Person>> diferencia_vector1;
+    vector<shared_ptr<Person>> diferencia_vector2;
     for (auto const &p : personas2)
     {
         if (include(personas, p) != true)
         {
-            diferencia_vector.push_back(p);
+            diferencia_vector1.push_back(p);
         }
     }
+    for (auto const &p : personas)
+    {
+        if (include(personas2, p) != true)
+        {
+            diferencia_vector2.push_back(p);
+        }
+    }
+    vector<shared_ptr<Person>> diferencia_vector = unity(diferencia_vector1, diferencia_vector2);
     return diferencia_vector;
 }
