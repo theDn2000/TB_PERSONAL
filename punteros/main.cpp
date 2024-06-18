@@ -109,6 +109,10 @@ int main()
     cout << "El otro Juan está en el vector de punteros a personas?: " << include(ppersonas, p6) << endl;
 
 
+    vector<shared_ptr<Person>> ppersonas2{p1, p2, p3, p4, p5, p6};
+
+    vector<shared_ptr<Person>> vector_diferencia = difference(ppersonas, ppersonas2);
+    cout << "Diferencia: " << vector_diferencia.size() << endl;
 
 
 
