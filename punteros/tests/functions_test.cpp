@@ -108,7 +108,7 @@ TEST(UnityTest, unity_union)
     vector<shared_ptr<Person>> personas2 = {p3};
 
     vector<shared_ptr<Person>> suma = unity(personas, personas2);
-    EXPEXT_EQ(unity.size(), 3);
+    EXPECT_EQ(unity.size(), 3);
     EXPECT_TRUE(include(suma,p1));
     EXPECT_TRUE(include(suma,p3));
     EXPECT_FALSE(include(suma,p4));
