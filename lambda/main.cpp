@@ -81,11 +81,25 @@ vpp transform (vpp const &v, function<shared_ptr<Person>(shared_ptr<Person>)> co
     vpp result;
     for (auto elem : v)
     {
-        result.push_back(f(elem));
+        shared_ptr<Person> p = make_shared<Person>(*elem);
+        result.push_back(f(p));
     }
     return result;
 }
 
+// Find --> Recibe un vector y una funcion lambda y devuelve el primer elemento que cumple el requisito de la funcion lambda
+shared_ptr<Person> find (vpp const &v, function<bool(shared_ptr<Person>)> const &f)
+{
+    for (auto elem : v)
+    {
+        if (f(elem))
+        {
+            return elem;
+        }
+    }
+    return nullptr;
+}
+    
 
 int main()
 {
@@ -177,6 +191,10 @@ int main()
     // Aplicamos la funcion transform al vector de enteros
     vpp result3 = transform(ppersonas, [](shared_ptr<Person> p) {if (p->age > 18) {p->esAdulto = true;} return p;});
     cout << result3[0]->esAdulto << endl;
+
+    // Aplicamos la funcion find al vector de punteros a personas
+    shared_ptr<Person> result4 = find(ppersonas, [](shared_ptr<Person> p) {return p->age > 18;});
+    cout << "Primer persona mayor de edad en el vector: " << result4->name << endl;
 
     /*
     auto h = operacion(1, 2, suma); // Función lambda o funcion de callback
