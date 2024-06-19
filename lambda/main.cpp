@@ -116,9 +116,14 @@ int main()
         }
     };
 
+    function <int(int)> square = [](int a)
+    {
+        return a * a;
+    };
+
     vi v = {48, 17};
 
-    vector<int> result = filter(v, is_greater_than_10);
+    vector<int> result = transform(v, square);
     for (auto elem : result)
     {
         cout << elem << endl;
