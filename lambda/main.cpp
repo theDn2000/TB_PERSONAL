@@ -70,6 +70,7 @@ vector<int> transform (vi const &v, function<int(int)> const &f)
     {
         result.push_back(f(elem));
     }
+    return result;
 }
 
 
