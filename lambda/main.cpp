@@ -4,9 +4,21 @@
 
 using namespace std;
 
+// Clase persona
+struct Person
+{
+    string name;
+    int age;
+    string dni;
+    string mail;
+    bool esAdulto;
+};
+
 // Alias
 typedef vector<int> vi;
 typedef function<void(int)> flambda;
+typedef vector<shared_ptr<Person>> vpp;
+typedef function<bool(shared_ptr<Person>)> fpp;
 
 int operacion(int a, int b, function<int(int, int)> f)
 {
@@ -23,7 +35,7 @@ void forEach(vi const &v, flambda const &f)
 }
 
 // Some --> Recibe un vector y una funcion lambda y devuelve true si algun elemento del vector cumple el requisito de la funcion lambda
-bool some(vi const &v, function<bool(int)> const &f)
+bool some(vpp const &v, fpp const &f)
 {
     for (auto elem : v)
     {
@@ -36,7 +48,7 @@ bool some(vi const &v, function<bool(int)> const &f)
 }
 
 // Every --> Recibe un vector y una funcion lambda y devuelve true si todos los elementos del vector cumplen el requisito de la funcion lambda
-bool every(vi const &v, function<bool(int)> const &f)
+bool every(vpp const &v, fpp const &f)
 {
     for (auto elem : v)
     {
@@ -63,9 +75,9 @@ vector<int> filter (vi const &v, function<bool(int)> const &f)
 }
 
 // Transform --> Recibe un vector y una funcion lambda y devuelve un vector con los elementos transformados por la funcion lambda
-vector<int> transform (vi const &v, function<int(int)> const &f)
+vpp transform (vpp const &v, function<shared_ptr<Person>(shared_ptr<Person>)> const &f)
 {
-    vi result;
+    vpp result;
     for (auto elem : v)
     {
         result.push_back(f(elem));
@@ -123,11 +135,47 @@ int main()
 
     vi v = {48, 17};
 
+    /*
     vector<int> result = transform(v, square);
     for (auto elem : result)
     {
         cout << elem << endl;
     };
+    */
+
+
+    
+    // Personas
+    // Creamos personas
+    Person alberto{"Alberto", 30, "12345678A", "alberto@mail.com", false}; // Estructuras
+    Person juan = {"Juan", 15, "12345678A", "juan@mail.com", false};
+    Person jose = {"Jose", 74, "12345678A", "jose@mail.com", false};
+    Person marta = {"Marta", 51, "12345678A", "marta@mail.com", false};
+    Person claudia = {"Claudia", 8, "12345678A", "claudia@mail.com", false};
+
+    // Creamos punteros a personas
+    shared_ptr<Person> p1 = make_shared<Person>(alberto);
+    shared_ptr<Person> p2 = make_shared<Person>(juan);
+    shared_ptr<Person> p3 = make_shared<Person>(jose);
+    shared_ptr<Person> p4 = make_shared<Person>(marta);
+    shared_ptr<Person> p5 = make_shared<Person>(claudia);
+    // Hay dos juanes, con las mismas propiedades pero con distinta dirección de memoria
+    shared_ptr<Person> p6 = make_shared<Person>(juan); // El otro juan
+
+    // Vector de punteros a estructuras personas (no añadimos al otro juan)
+    vector<shared_ptr<Person>> ppersonas{p1, p2, p3, p4, p5};
+
+    // Aplicamos la funcion some al vector de punteros a personas
+    bool result = some(ppersonas, [](shared_ptr<Person> p) {return p->age > 18;});
+    cout << "Hay alguna persona mayor de edad?: " << result << endl;
+
+    // Aplicamos la funcion every al vector de punteros a personas
+    bool result2 = every(ppersonas, [](shared_ptr<Person> p) {return p->age > 18;});
+    cout << "Son todas las personas mayores de edad: " << result2 << endl;
+
+    // Aplicamos la funcion transform al vector de enteros
+    vpp result3 = transform(ppersonas, [](shared_ptr<Person> p) {if (p->age > 18) {p->esAdulto = true;} return p;});
+    cout << result3[0]->esAdulto << endl;
 
     /*
     auto h = operacion(1, 2, suma); // Función lambda o funcion de callback
