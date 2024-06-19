@@ -35,6 +35,19 @@ bool some(vi const &v, function<bool(int)> const &f)
     return false;
 }
 
+// Every --> Recibe un vector y una funcion lambda y devuelve true si todos los elementos del vector cumplen el requisito de la funcion lambda
+bool every(vi const &v, function<bool(int)> const &f)
+{
+    for (auto elem : v)
+    {
+        if (!f(elem))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main()
 {
     function<int(int, int)> suma = [](int a, int b)
@@ -77,9 +90,9 @@ int main()
         }
     };
 
-    vi v = {1, 2, 3, 4, 5};
+    vi v = {1, 2, 3, 4, 5, 17};
 
-    bool is_greater = some(v, is_greater_than_10);
+    bool is_greater = every(v, is_greater_than_10);
     cout << is_greater << endl;
 
     /*
