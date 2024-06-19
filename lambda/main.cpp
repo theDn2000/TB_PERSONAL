@@ -32,6 +32,7 @@ bool some(vi const &v, function<bool(int)> const &f)
             return true;
         }
     }
+    return false;
 }
 
 int main()
