@@ -25,15 +25,14 @@ void forEach(vi const &v, flambda const &f)
 // Some --> Recibe un vector y una funcion lambda y devuelve true si algun elemento del vector cumple el requisito de la funcion lambda
 bool some(vi const &v, function<bool(int)> const &f)
 {
-    bool is_greater = false;
     for (auto elem : v)
     {
         if (f(elem))
         {
-            is_greater = true;
+            return true;
         }
     }
-    return is_greater;
+    return false;
 }
 
 int main()
