@@ -90,7 +90,7 @@ int main()
         }
     };
 
-    vi v = {1, 2, 3, 4, 5, 17};
+    vi v = {48, 17};
 
     bool is_greater = every(v, is_greater_than_10);
     cout << is_greater << endl;
