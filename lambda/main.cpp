@@ -8,9 +8,9 @@ using namespace std;
 typedef vector<int> vi;
 typedef function<void(int)> flambda;
 
-int operacion(int a, int b, function<int(int,int)> f)
+int operacion(int a, int b, function<int(int, int)> f)
 {
-    return f(a,b);
+    return f(a, b);
 }
 
 // For Each --> Recorre un vector y hace algo con cada elemento
@@ -22,23 +22,34 @@ void forEach(vi const &v, flambda const &f)
     }
 }
 
-int main ()
+// Some --> Recibe un vector y una funcion lambda y devuelve true si algun elemento del vector cumple el requisito de la funcion lambda
+bool some(vi const &v, function<bool(int)> const &f)
 {
-    function<int(int,int)> suma = [](int a, int b) 
+    for (auto elem : v)
+    {
+        if (f(elem))
+        {
+            return true;
+        }
+    }
+}
+
+int main()
+{
+    function<int(int, int)> suma = [](int a, int b)
     {
         return a + b;
     };
 
-    function<int(int,int)> resta = [](int a, int b)
+    function<int(int, int)> resta = [](int a, int b)
     {
         return a - b;
     };
 
-    function<int(int,int)> multiplicacion = [](int a, int b)
+    function<int(int, int)> multiplicacion = [](int a, int b)
     {
         return a * b;
     };
-
 
     flambda print = [](int a)
     {
@@ -53,9 +64,18 @@ int main ()
         }
     };
 
-    vi v = {1, 2, 3, 4, 5};
+    function<bool(int)> is_greater_than_10 = [](int a)
+    {
+        if (a > 10)
+        {
+            return true;
+        }
+    };
 
-    forEach(v, print_if_even);
+    vi v = {1, 2, 3, 4, 5, 11};
+
+    bool is_greater = some(v, is_greater_than_10);
+    cout << is_greater << endl;
 
     /*
     auto h = operacion(1, 2, suma); // Función lambda o funcion de callback
