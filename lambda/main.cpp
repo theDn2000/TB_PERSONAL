@@ -45,9 +45,17 @@ int main ()
         cout << a << endl;
     };
 
+    flambda print_if_even = [](int a)
+    {
+        if (a % 2 == 0)
+        {
+            cout << a << endl;
+        }
+    };
+
     vi v = {1, 2, 3, 4, 5};
 
-    forEach(v, print);
+    forEach(v, print_if_even);
 
     /*
     auto h = operacion(1, 2, suma); // Función lambda o funcion de callback
