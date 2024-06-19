@@ -193,8 +193,8 @@ int main()
     cout << result3[0]->esAdulto << endl;
 
     // Aplicamos la funcion find al vector de punteros a personas
-    shared_ptr<Person> result4 = find(ppersonas, [](shared_ptr<Person> p) {return p->age > 18;});
-    cout << "Primer persona mayor de edad en el vector: " << result4->name << endl;
+    shared_ptr<Person> result4 = find(ppersonas, [](shared_ptr<Person> p) {return p->age > 50;});
+    cout << "Primer persona mayor de 50 en el vector: " << result4->name << endl;
 
     /*
     auto h = operacion(1, 2, suma); // Función lambda o funcion de callback
