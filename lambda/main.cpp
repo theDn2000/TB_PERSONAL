@@ -48,6 +48,31 @@ bool every(vi const &v, function<bool(int)> const &f)
     return true;
 }
 
+// Filter --> Recibe un vector y una funcion lambda y devuelve un vector con los elementos que cumplen el requisito de la funcion lambda
+vector<int> filter (vi const &v, function<bool(int)> const &f)
+{
+    vi result;
+    for (auto elem : v)
+    {
+        if (f(elem))
+        {
+            result.push_back(elem);
+        }
+    }
+    return result;
+}
+
+// Transform --> Recibe un vector y una funcion lambda y devuelve un vector con los elementos transformados por la funcion lambda
+vector<int> transform (vi const &v, function<int(int)> const &f)
+{
+    vi result;
+    for (auto elem : v)
+    {
+        result.push_back(f(elem));
+    }
+}
+
+
 int main()
 {
     function<int(int, int)> suma = [](int a, int b)
@@ -92,8 +117,11 @@ int main()
 
     vi v = {48, 17};
 
-    bool is_greater = every(v, is_greater_than_10);
-    cout << is_greater << endl;
+    vector<int> result = filter(v, is_greater_than_10);
+    for (auto elem : result)
+    {
+        cout << elem << endl;
+    };
 
     /*
     auto h = operacion(1, 2, suma); // Función lambda o funcion de callback
