@@ -78,7 +78,7 @@ int main()
         }
     };
 
-    vi v = {1, 2, 3, 4, 5};
+    vi v = {1, 2, 3, 4, 5, 14};
 
     bool is_greater = some(v, is_greater_than_10);
     cout << is_greater << endl;
