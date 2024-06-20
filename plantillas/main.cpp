@@ -144,12 +144,9 @@ int main ()
         return elem.age > 25; 
     });
 
-    vector<Person> result4 = transform<Person>(vp, [](vector<Person> elem) 
+    vector<Person> result4 = transform<Person>(vp, [](Person elem) 
     { 
-        for (auto e : elem)
-        {
-            e.age += 10;
-        }
+        elem.age += 10;
         return elem;
     });
 
