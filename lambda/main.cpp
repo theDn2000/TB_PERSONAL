@@ -239,10 +239,6 @@ int main()
 
     // Suma
 
-    for (auto elem : fibo)
-    {
-        cout << elem << endl;
-    }
 
 
 
