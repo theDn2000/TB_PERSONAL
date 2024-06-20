@@ -77,7 +77,7 @@ bool every(vector<T> const &v, function<bool(T)> const &f)
 template <typename T>
 vector<T> filter (vector<T> const &v, function<bool(T)> const &f)
 {
-    vi result;
+    vector<T> result;
     for (auto elem : v)
     {
         if (f(elem))
