@@ -93,7 +93,7 @@ template <typename T>
 vector<T> transform (vector<T> const &v, function<vector<T>(vector<T>)> const &f)
 {
     vector<T> result;
-    for (auto elem : v)
+    for (T elem : v)
     {
         result.push_back(f(elem));
     }
