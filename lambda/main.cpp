@@ -227,13 +227,14 @@ int main()
     // Serie fibonacci
     // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
     // Fibonnacci with for each
-    vector<int> fibo{1, 2};
+    vector<int> fibo{1, 2, 3};
     vector<int> n{1,2,3,4,5,6,7,8,9,10};
 
 
     forEachint(n, [&](int elem, int i)
     {
         int size = fibo.size();
+        cout << "Size: " << size << endl;
         fibo.push_back(fibo.at(size - 1) + fibo.at(size - 2));
     });
 
