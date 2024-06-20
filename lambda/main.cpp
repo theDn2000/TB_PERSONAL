@@ -231,7 +231,11 @@ int main()
     vector<int> n{1,2,3,4,5,6,7,8,9,10};
 
 
-    forEachint(n, [&](int elem, int i){fibo.push_back(fibo.at(i - 1) + fibo.at(i - 2));});
+    forEachint(n, [&fibo](int elem, int i)
+    {
+        int size = fibo.size();
+        fibo.push_back(fibo.at(size - 1) + fibo.at(size - 2));
+    });
 
     for (auto elem : fibo)
     {
