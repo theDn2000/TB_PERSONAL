@@ -89,8 +89,8 @@ vector<T> filter (vector<T> const &v, function<bool(T)> const &f)
 }
 
 // Templatizar transform
-template <typename T>
-vector<T> transform (vector<T> const &v, function<vector<T>(vector<T>)> const &f)
+template <typename T, typename R>
+vector<R> transform (vector<T> const &v, function<T(T)> const &f)
 {
     vector<T> result;
     for (T elem : v)
@@ -111,7 +111,8 @@ T find (vector<T> const &v, function<bool(T)> const &f)
             return elem;
         }
     }
-    return nullptr;
+    // Return null
+    return T();
 }
 
 
