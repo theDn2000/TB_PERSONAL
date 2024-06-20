@@ -26,6 +26,14 @@ int operacion(int a, int b, function<int(int, int)> f)
     return f(a, b);
 }
 
+void forEachint(vi const &v, function<void(int, int)> const &f)
+{
+    for (auto elem : v)
+    {
+        f(v.at(elem), elem);
+    }
+}
+
 // For Each --> Recorre un vector y hace algo con cada elemento
 void forEach(vi const &v, flambda const &f)
 {
@@ -202,6 +210,34 @@ int main()
     {
         cout << "Primer persona mayor de 70 en el vector: " << result4->name << endl;
     }
+
+
+    // {1, 2, 3, 4 ,5}
+    // {2, 3, 4, 5, 6, 6, 3}
+    vector<int> a{1, 2, 3, 4, 5};
+    vector<int> b{2, 3, 4, 5, 6, 6, 3};
+    vector<int> nuevo;
+
+    // [] -> No tengo acceso a variables externas
+    // [&] -> Tengo acceso a todas las variables externas por referencia (puedo modificarlas)
+    // [=] -> Tengo acceso a todas las variables externas por referencia constante (no puedo modificarlas)
+
+    forEachint(a, [&](int elem, int i){nuevo.push_back(elem + b.at(i));});
+
+    // Serie fibonacci
+    // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+    // Fibonnacci with for each
+    vector<int> fibo{0, 1};
+    vector<int> n{1,2,3,4,5,6,7,8,9,10};
+
+
+    forEachint(n, [&](int elem, int i){fibo.push_back(fibo.at(i - 1) + fibo.at(i - 2));});
+
+
+
+
+
+
 
     /*
     auto h = operacion(1, 2, suma); // Función lambda o funcion de callback
