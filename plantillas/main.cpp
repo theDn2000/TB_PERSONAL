@@ -92,7 +92,7 @@ vector<T> filter (vector<T> const &v, function<bool(T)> const &f)
 template <typename T>
 vector<T> transform (vector<T> const &v, function<vector<T>(vector<T>)> const &f)
 {
-    vpp result;
+    vector<T> result;
     for (auto elem : v)
     {
         result.push_back(f(elem));
