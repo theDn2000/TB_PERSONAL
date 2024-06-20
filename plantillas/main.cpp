@@ -90,7 +90,7 @@ vector<T> filter (vector<T> const &v, function<bool(T)> const &f)
 
 // Templatizar transform
 template <typename T>
-vector<R> transform (vector<T> const &v, function<T(T)> const &f)
+vector<T> transform (vector<T> const &v, function<T(T)> const &f)
 {
     vector<T> result;
     for (T elem : v)
