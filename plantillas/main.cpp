@@ -51,4 +51,7 @@ int main ()
     // Plantillas: Funciones a las que no les queremos especificar el tipo de dato
     auto c = suma<int>(5, 6);
     return 0;
+
+    vector<int> v = {1, 2, 3, 4, 5};
+    forEach<int, void>(v, [](int elem) { cout << elem << endl; });
 }
