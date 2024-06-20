@@ -233,8 +233,8 @@ int main()
 
     forEachint(n, [&](int elem, int i)
     {
-        int size = fibo.size();
-        fibo.push_back(fibo.at(size - 1) + fibo.at(size - 2));
+        int fibo_size = fibo.size();
+        fibo.push_back(fibo.at(fibo_size - 1) + fibo.at(fibo_size - 2));
     });
 
     // Suma
