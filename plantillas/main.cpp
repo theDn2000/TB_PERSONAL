@@ -53,9 +53,10 @@ int main ()
     
 
     vector<int> v = {1, 2, 3, 4, 5};
-    forEach<int>(v, [](int elem) 
+    vector<Person> vp = {{"Juan", 20}, {"Pedro", 30}};
+    forEach<Person>(vp, [](Person elem) 
     { 
-        cout << elem << endl; 
+        cout << elem.name << endl; 
     });
 
     return 0;
