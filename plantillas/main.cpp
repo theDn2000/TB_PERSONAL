@@ -45,6 +45,75 @@ void forEach(vector<T> const &v, function<void(T)> const &f)
     }
 };
 
+// Templatizar some
+template <typename T>
+bool some(vector<T> const &v, function<bool(T)> const &f)
+{
+    for (auto elem : v)
+    {
+        if (f(elem))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Templatizar every
+template <typename T>
+bool every(vector<T> const &v, function<bool(T)> const &f)
+{
+    for (auto elem : v)
+    {
+        if (!f(elem))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Templatizar operacion
+template <typename T>
+vector<T> filter (vector<T> const &v, function<bool(T)> const &f)
+{
+    vi result;
+    for (auto elem : v)
+    {
+        if (f(elem))
+        {
+            result.push_back(elem);
+        }
+    }
+    return result;
+}
+
+// Templatizar transform
+template <typename T>
+vector<T> transform (vector<T> const &v, function<vector<T>(vector<T>)> const &f)
+{
+    vpp result;
+    for (auto elem : v)
+    {
+        result.push_back(f(elem));
+    }
+    return result;
+}
+
+// Templatizar find
+template <typename T>
+T find (vector<T> const &v, function<bool(T)> const &f)
+{
+    for (auto elem : v)
+    {
+        if (f(elem))
+        {
+            return elem;
+        }
+    }
+    return nullptr;
+}
+
 
 int main ()
 {
@@ -58,6 +127,36 @@ int main ()
     { 
         cout << elem.name << endl; 
     });
+
+    bool result = some<Person>(vp, [](Person elem) 
+    { 
+        return elem.age > 25; 
+    });
+
+    bool result2 = every<Person>(vp, [](Person elem) 
+    { 
+        return elem.age > 25; 
+    });
+
+    vector<Person> result3 = filter<Person>(vp, [](Person elem) 
+    { 
+        return elem.age > 25; 
+    });
+
+    vector<Person> result4 = transform<Person>(vp, [](vector<Person> elem) 
+    { 
+        for (auto e : elem)
+        {
+            e.age += 10;
+        }
+        return elem;
+    });
+
+    Person result5 = find<Person>(vp, [](Person elem) 
+    { 
+        return elem.age > 25; 
+    });
+    
 
     return 0;
 }
