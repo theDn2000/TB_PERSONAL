@@ -36,8 +36,8 @@ Person suma (Person a, Person b)
 }
 
 // Templatizar for each
-template <typename T, typename U>
-void forEach(vector<T> const &v, function<U(T)> const &f)
+template <typename T>
+void forEach(vector<T> const &v, function<void(T)> const &f)
 {
     for (auto elem : v)
     {
@@ -53,7 +53,7 @@ int main ()
     return 0;
 
     vector<int> v = {1, 2, 3, 4, 5};
-    forEach<int, void>(v, [](int elem) 
+    forEach<int>(v, [](int elem) 
     { 
         cout << elem << endl; 
     });
