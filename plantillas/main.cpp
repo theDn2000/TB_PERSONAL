@@ -89,7 +89,7 @@ vector<T> filter (vector<T> const &v, function<bool(T)> const &f)
 }
 
 // Templatizar transform
-template <typename T, typename R>
+template <typename T>
 vector<R> transform (vector<T> const &v, function<T(T)> const &f)
 {
     vector<T> result;
@@ -144,7 +144,7 @@ int main ()
         return elem.age > 25; 
     });
 
-    vector<Person> result4 = transform<Person>(vp, [](Person elem) 
+    Person result4 = transform<Person>(vp, [](Person elem) 
     { 
         elem.age += 10;
         return elem;
