@@ -227,26 +227,24 @@ int main()
     // Serie fibonacci
     // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
     // Fibonnacci with for each
-    vector<int> fibo{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<int> fibo{1, 2};
     vector<int> n{1,2,3,4,5,6,7,8,9,10};
 
 
     forEachint(n, [&](int elem, int i)
     {
         int size = fibo.size();
-        if (i >= size)
-        {
-            fibo.push_back(fibo.at(size - 1) + fibo.at(size - 2));
-        }
+        fibo.push_back(fibo.at(size - 1) + fibo.at(size - 2));
     });
 
     // Suma del vector de fibonacci con for each
+    /*
     int suma_fibo = 0;
     forEachint(fibo, [&](int elem, int i)
     {
         suma_fibo += elem;
     });
-
+    */
 
 
 
