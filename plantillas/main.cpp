@@ -1,4 +1,8 @@
 #include <iostream>
+#include <vector>
+#include <functional>
+#include <memory>
+
 
 using namespace std;
 
