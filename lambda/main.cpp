@@ -26,11 +26,11 @@ int operacion(int a, int b, function<int(int, int)> f)
     return f(a, b);
 }
 
-void forEachint(vi const &v, function<void(int, int)> const &f)
+void forEachint(vi const &v, function<void(int)> const &f)
 {
     for (auto elem : v)
     {
-        f(v.at(elem), elem);
+        f(elem);
     }
 }
 
@@ -231,7 +231,7 @@ int main()
     vector<int> n{3,4,5,6,7,8,9,10};
 
 
-    forEachint(n, [&](int elem, int i)
+    forEachint(n, [&](int elem)
     {
         int size = fibo.size();
         cout << "Size: " << size << endl;
