@@ -236,6 +236,7 @@ int main()
         int size = fibo.size();
         cout << "Size: " << size << endl;
         fibo.push_back(fibo.at(size - 1) + fibo.at(size - 2));
+        cout << fibo.at(size - 1) + fibo.at(size - 2) << endl;
     });
 
     // Suma del vector de fibonacci con for each
