@@ -222,7 +222,7 @@ int main()
     // [&] -> Tengo acceso a todas las variables externas por referencia (puedo modificarlas)
     // [=] -> Tengo acceso a todas las variables externas por referencia constante (no puedo modificarlas)
 
-    forEachint(a, [&](int elem, int i){nuevo.push_back(elem + b.at(i));});
+    // forEachint(a, [&](int elem, int i){nuevo.push_back(elem + b.at(i));});
 
     // Serie fibonacci
     // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
@@ -236,6 +236,8 @@ int main()
         int size = fibo.size();
         fibo.push_back(fibo.at(size - 1) + fibo.at(size - 2));
     });
+
+    // Suma
 
     for (auto elem : fibo)
     {
