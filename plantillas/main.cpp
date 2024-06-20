@@ -53,5 +53,8 @@ int main ()
     return 0;
 
     vector<int> v = {1, 2, 3, 4, 5};
-    forEach<int, void>(v, [](int elem) { cout << elem << endl; });
+    forEach<int, void>(v, [](int elem) 
+    { 
+        cout << elem << endl; 
+    });
 }
