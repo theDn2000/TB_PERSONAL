@@ -233,6 +233,11 @@ int main()
 
     forEachint(n, [&](int elem, int i){fibo.push_back(fibo.at(i - 1) + fibo.at(i - 2));});
 
+    for (auto elem : fibo)
+    {
+        cout << elem << endl;
+    }
+
 
 
 
