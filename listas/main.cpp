@@ -15,7 +15,7 @@ template <typename T>
 using Node_T = shared_ptr<Node<T>>;
 
 template <typename T>
-Node_T<T> push(Node_T<T> first, T data) // T como tipo T porque en la definición de la función se define el tipo de dato
+void push(Node_T<T> first, T data) // T como tipo T porque en la definición de la función se define el tipo de dato
 {
     auto it = first;
     while (it->next)
