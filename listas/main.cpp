@@ -80,6 +80,10 @@ void eliminar_elem(Node_T<T> &first, Node_T<T> &elem)
         auto it = first;
         while (it->next != elem)
         {
+            if (it->next == nullptr)
+            {
+                return;
+            }
             it = it->next;
         }
         it->next = elem->next;
