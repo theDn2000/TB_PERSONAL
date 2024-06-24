@@ -11,6 +11,16 @@ struct Person
     string telephone;
 };
 
+string create_random_id()
+{
+    string id;
+    for (int i{0}; i < 10; i++)
+    {
+        id += to_string(rand() % 10);
+    }
+    return id;
+}
+
 template <typename T>
 struct Node
 {
@@ -46,15 +56,7 @@ shared_ptr<Node<T>> push_r(shared_ptr<Node<T>> first, T data)
     return nNode;
 }
 
-string create_random_id()
-{
-    string id;
-    for (int i{0}; i < 10; i++)
-    {
-        id += to_string(rand() % 10);
-    }
-    return id;
-}
+
 
 // Mostrar todos los datos [iterativo]
 void imprimir_elem(Node_T<int> first)
