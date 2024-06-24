@@ -49,7 +49,6 @@ void imprimir_elem(Node_T<int> first)
         cout << it->data <<  endl;
         it = it->next;
     }
-    cout << endl;
 }
 
 // Mostrar todos los datos [recursivo]
@@ -60,7 +59,6 @@ void imprimir_recursivo(Node_T<int> first)
         cout << first->data << endl;
         imprimir_recursivo(first->next);
     }
-    cout << endl;
 }
 
 void imprimir_for_each(Node_T<int> first, function<void(int)> f)
@@ -100,7 +98,7 @@ int main()
     imprimir_elem(start);
 
 
-/*
+
     // Imprimir_recursivo
     imprimir_recursivo(start);
 
@@ -110,5 +108,5 @@ int main()
         cout << a << endl;
     }
     );
-*/
+
 }
