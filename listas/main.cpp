@@ -94,7 +94,7 @@ void imprimir_for_each(Node_T<T> first, function<void(T)> f)
 template <typename T>
 void eliminar_elem(Node_T<T> &first, Node_T<T> &elem)
 {
-    if first != elem
+    if (first != elem)
     {
         auto it = first;
         while (it->next != elem)
