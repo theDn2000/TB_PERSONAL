@@ -118,7 +118,7 @@ void remove(Node_T<T> &head, string const &id)
 {
     if (head->id == id)
     {
-        head = heado->next;
+        head = head->next;
     }
 
     auto it = head;
