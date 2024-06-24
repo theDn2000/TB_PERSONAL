@@ -161,67 +161,71 @@ int main()
     push(start, Person{"Jose", "888888888"});
     push(start, Person{"Rodri", "999999999"});
 
-
-    // Agenda [añadir, eliminar, buscar, mostrar]
-
-    // Se pregunta al usuario que quiere hacer
-    cout << "Bienvenido a la mejor agenda del mundo" << endl;
-    cout << "1. Añadir contacto" << endl;
-    cout << "2. Eliminar contacto" << endl;
-    cout << "3. Buscar contacto" << endl;
-    cout << "4. Mostrar todos los contactos" << endl
-            << endl;
-    cout << "¿Qué quieres hacer?: ";
-
-    int option;
-    cin >> option;
-
-    switch (option)
+    while (true)
+    // Wait for the user to select an option
+    cin.ignore();
     {
-    case 1:
-    {
-        string name;
-        string telephone;
-        cout << "Nombre: ";
-        cin >> name;
-        cout << "Telefono: ";
-        cin >> telephone;
-        push(start, Person{name, telephone});
-        cout << "Contacto añadido correctamente" << endl;
-        break;
-    }
-    case 2:
-    {
-        string id;
-        cout << "Introduce la id: ";
-        cin >> id;
-        remove(start, id);
-        cout << "Contactro eliminado correctamente" << endl;
-        break;
-    }
-    case 3:
-    {
-        string name;
-        cout << "Introduce el nombre: ";
-        cin >> name;
-        auto v = find_persons(start, name);
-        for (auto elem : v)
+        // Agenda [añadir, eliminar, buscar, mostrar]
+
+        // Se pregunta al usuario que quiere hacer
+        cout << "Bienvenido a la mejor agenda del mundo" << endl;
+        cout << "1. Añadir contacto" << endl;
+        cout << "2. Eliminar contacto" << endl;
+        cout << "3. Buscar contacto" << endl;
+        cout << "4. Mostrar todos los contactos" << endl
+             << endl;
+        cout << "¿Qué quieres hacer?: ";
+
+        int option;
+        cin >> option;
+
+        switch (option)
         {
-            cout << elem->data.name << " " << elem->data.telephone << endl;
+        case 1:
+        {
+            string name;
+            string telephone;
+            cout << "Nombre: ";
+            cin >> name;
+            cout << "Telefono: ";
+            cin >> telephone;
+            push(start, Person{name, telephone});
+            cout << "Contacto añadido correctamente" << endl;
+            break;
         }
-        break;
-    }
-    case 4:
-    {
-        imprimir_for_each<Person>(start, [](Person p)
-                                    { cout << p.name << " " << p.telephone << endl; });
-        break;
-    }
-    default:
-    {
-        cout << "Por favor, selecciona una de las opciones posibles" << endl;
-        break;
-    }
+        case 2:
+        {
+            string id;
+            cout << "Introduce la id: ";
+            cin >> id;
+            remove(start, id);
+            cout << "Contactro eliminado correctamente" << endl;
+            break;
+        }
+        case 3:
+        {
+            string name;
+            cout << "Introduce el nombre: ";
+            cin >> name;
+            auto v = find_persons(start, name);
+            for (auto elem : v)
+            {
+                cout << elem->data.name << " " << elem->data.telephone << endl;
+            }
+            break;
+        }
+        case 4:
+        {
+            imprimir_for_each<Person>(start, [](Person p)
+                                      { cout << p.name << " " << p.telephone << endl; });
+            break;
+        }
+        default:
+        {
+            cout << "Por favor, selecciona una de las opciones posibles" << endl;
+            break;
+        }
+        }
     }
 
     /*
