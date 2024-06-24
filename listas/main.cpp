@@ -1,14 +1,22 @@
 #include <memory>
 #include <iostream>
 #include <functional>
+#include <string>
 
 using namespace std;
+
+struct Person
+{
+    string name;
+    string telephone;
+};
 
 template <typename T>
 struct Node
 {
     T data;
     shared_ptr<Node<T>> next;
+    string id;
 };
 
 template <typename T>
@@ -22,7 +30,7 @@ void push(Node_T<T> first, T data) // T como tipo T porque en la definición de 
     {
         it = it->next;
     }
-    shared_ptr<Node<T>> new_node = make_shared<Node<T>>(Node<T>{data, nullptr});
+    shared_ptr<Node<T>> new_node = make_shared<Node<T>>(Node<T>{data, nullptr, create_random_id()});
     it->next = new_node;
 }
 
@@ -33,12 +41,20 @@ shared_ptr<Node<T>> push_r(shared_ptr<Node<T>> first, T data)
     {
         return push_r(first->next, data);
     }
-    shared_ptr<Node<T>> nNode = make_shared<Node<T>>(Node<T>{data, nullptr});
+    shared_ptr<Node<T>> nNode = make_shared<Node<T>>(Node<T>{data, nullptr, create_random_id()});
     first->next = nNode;
     return nNode;
 }
 
-
+string create_random_id()
+{
+    string id;
+    for (int i{0}; i < 10; i++)
+    {
+        id += to_string(rand() % 10);
+    }
+    return id;
+}
 
 // Mostrar todos los datos [iterativo]
 void imprimir_elem(Node_T<int> first)
@@ -61,7 +77,8 @@ void imprimir_recursivo(Node_T<int> first)
     }
 }
 
-void imprimir_for_each(Node_T<int> first, function<void(int)> f)
+template <typename T>
+void imprimir_for_each(Node_T<T> first, function<void(T)> f)
 {
     auto it = first;
     while (it)
@@ -94,36 +111,128 @@ void eliminar_elem(Node_T<T> &first, Node_T<T> &elem)
     }
 }
 
+template <typename T>
+void remove(Node_T<T> &head, string const &id)
+{
+    if (head->id == id)
+    {
+        head = heado->next;
+    }
+
+    auto it = head;
+    while (it->next->id != id)
+    {
+        it = it->next;
+        if (it->next == nullptr)
+        {
+            return;
+        }
+    }
+    it->next = it->next->next;
+}
 
 
 
-
-
-
-
-
-
+// Buscar un elemento de la lista
+vector<shared_ptr<Node<Person>>> find_persons(Node_T<Person> first, string name)
+{
+    vector<shared_ptr<Node<Person>>> v;
+    auto it = first;
+    while (it)
+    {
+        if (it->data.name.find(name) != string::npos)
+        {
+            v.push_back(it);
+        }
+        it = it->next;
+    }
+    return v;
+}
 
 int main()
 {
-    shared_ptr<Node<int>> start = make_shared<Node<int>>(Node<int>{1, nullptr});
-    //shared_ptr<Node<int>> other = make_shared<Node<int>>(Node<int>{2, nullptr});
-    //shared_ptr<Node<int>> other3 = make_shared<Node<int>>(Node<int>{3, nullptr});
+    shared_ptr<Node<Person>> start = make_shared<Node<Person>>(Node<Person>{Person{"Dani", "666666666"}, nullptr, create_random_id()});
+    // shared_ptr<Node<int>> other = make_shared<Node<int>>(Node<int>{2, nullptr});
+    // shared_ptr<Node<int>> other3 = make_shared<Node<int>>(Node<int>{3, nullptr});
 
-    push(start, 2);
-    push(start, 3);
-    push(start, 4);
+    push(start, Person{"Pepe", "777777777"});
+    push(start, Person{"Jose", "888888888"});
+    push(start, Person{"Rodri", "999999999"});
 
+    while (true)
+    {
+        // Agenda [añadir, eliminar, buscar, mostrar]
 
+        // Se pregunta al usuario que quiere hacer
+        cout << "Bienvenido a la mejor agenda del mundo" << endl;
+        cout << "1. Añadir contacto" << endl;
+        cout << "2. Eliminar contacto" << endl;
+        cout << "3. Buscar contacto" << endl;
+        cout << "4. Mostrar todos los contactos" << endl
+             << endl;
+        cout << "¿Qué quieres hacer?: ";
 
+        int option;
+        cin >> option;
+
+        switch (option)
+        {
+        case 1:
+        {
+            string name;
+            string telephone;
+            cout << "Nombre: ";
+            cin >> name;
+            cout << "Telefono: ";
+            cin >> telephone;
+            push(start, Person{name, telephone});
+            cout << "Contacto añadido correctamente" << endl;
+            break;
+        }
+        case 2:
+        {
+            string id;
+            cout << "Introduce la id: ";
+            cin >> id;
+            remove(start, id);
+            cout << "Contactro eliminado correctamente" << endl;
+            break;
+        }
+        case 3:
+        {
+            string name;
+            cout << "Introduce el nombre: ";
+            cin >> name;
+            auto v = find_persons(start, name);
+            for (auto elem : v)
+            {
+                cout << elem->data.name << " " << elem->data.telephone << endl;
+            }
+            break;
+        }
+        case 4:
+        {
+            imprimir_for_each<Person>(start, [](Person p)
+                                      { cout << p.name << " " << p.telephone << endl; });
+            break;
+        }
+        default:
+        {
+            cout << "Por favor, selecciona una de las opciones posibles" << endl;
+            break;
+        }
+        }
+    }
+
+    /*
     // Imprimir_elem
-    imprimir_elem(start);
+    //imprimir_elem(start);
 
     // Eliminar_elem
-    eliminar_elem(start, start->next);
+    //eliminar_elem(start, start->next);
 
     // Imprimir_recursivo
-    imprimir_recursivo(start);
+    //imprimir_recursivo(start);
 
     // Imprimir_for_each
     imprimir_for_each(start, [](int a)
@@ -131,5 +240,5 @@ int main()
         cout << a << endl;
     }
     );
-
+    */
 }
