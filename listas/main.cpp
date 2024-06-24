@@ -73,14 +73,21 @@ void imprimir_for_each(Node_T<int> first, function<void(int)> f)
 
 // Eliminar un elemento de la lista
 template <typename T>
-void eliminar_elem(Node_T<T> first, Node_T<T> elem)
+void eliminar_elem(Node_T<T> &first, Node_T<T> &elem)
 {
-    auto it = first;
-    while (it->next != elem)
+    if first != elem
     {
-        it = it->next;
+        auto it = first;
+        while (it->next != elem)
+        {
+            it = it->next;
+        }
+        it->next = elem->next;
     }
-    it->next = elem->next;
+    else
+    {
+        first = first->next;
+    }
 }
 
 
