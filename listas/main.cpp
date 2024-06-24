@@ -52,6 +52,7 @@ void imprimir_elem(Node_T<int> first)
     cout << endl;
 }
 
+/*
 // Mostrar todos los datos [recursivo]
 void imprimir_recursivo(Node_T<int> first)
 {
@@ -73,6 +74,9 @@ void imprimir_for_each(Node_T<int> first, function<void(int)> f)
     }
 }
 
+*/
+
+
 
 
 
@@ -87,8 +91,8 @@ void imprimir_for_each(Node_T<int> first, function<void(int)> f)
 int main()
 {
     shared_ptr<Node<int>> start = make_shared<Node<int>>(Node<int>{1, nullptr});
-    shared_ptr<Node<int>> other = make_shared<Node<int>>(Node<int>{2, nullptr});
-    shared_ptr<Node<int>> other3 = make_shared<Node<int>>(Node<int>{3, nullptr});
+    //shared_ptr<Node<int>> other = make_shared<Node<int>>(Node<int>{2, nullptr});
+    //shared_ptr<Node<int>> other3 = make_shared<Node<int>>(Node<int>{3, nullptr});
 
     push(start, 2);
     push(start, 3);
