@@ -163,11 +163,9 @@ int main()
     push(start, Person{"Rodri", "999999999"});
 
     while (true)
-    // Waiit 1 second
+    // Wait 1 second
     
 
-    // Wait for the user to select an option
-    cin.ignore();
     {
         // Agenda [añadir, eliminar, buscar, mostrar]
 
