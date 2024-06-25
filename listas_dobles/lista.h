@@ -7,6 +7,11 @@
 
 using namespace std;
 
+struct Node; // Declaro por anticipado para evitar conflictos
+
+
+typedef shared_ptr<Node> P_Node;
+
 struct Node
 {
     string id;
@@ -14,8 +19,6 @@ struct Node
     P_Node next;
     P_Node prev;
 };
-
-using P_Node = shared_ptr<Node>;
 
 string create_random_id();
 
