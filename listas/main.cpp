@@ -198,7 +198,6 @@ int main()
         case 2:
         {
             string id;
-            cout << "Introduce la id: ";
             // Muestra todos los contactos y sus id
             auto it = start;
             while (it)
@@ -206,6 +205,7 @@ int main()
                 cout << it->data.name << " " << it->data.telephone << " " << it->id << endl;
                 it = it->next;
             }
+            cout << "Introduce la id del contacto que quieres eliminar: ";
             cin >> id;
             remove(start, id);
             cout << "Contactro eliminado correctamente" << endl << endl;
@@ -219,8 +219,9 @@ int main()
             auto v = find_persons(start, name);
             for (auto elem : v)
             {
-                cout << elem->data.name << " " << elem->data.telephone << endl << endl;
+                cout << elem->data.name << " " << elem->data.telephone << endl;
             }
+            cout << endl;
             break;
         }
         case 4:
