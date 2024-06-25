@@ -2,6 +2,7 @@
 #include <iostream>
 #include <functional>
 #include <string>
+#include <chrono>
 
 using namespace std;
 
@@ -162,6 +163,9 @@ int main()
     push(start, Person{"Rodri", "999999999"});
 
     while (true)
+    // Waiit 1 second
+    
+
     // Wait for the user to select an option
     cin.ignore();
     {
