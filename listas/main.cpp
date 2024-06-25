@@ -34,15 +34,36 @@ template <typename T>
 using Node_T = shared_ptr<Node<T>>;
 
 template <typename T>
-void push(Node_T<T> first, T data) // T como tipo T porque en la definición de la función se define el tipo de dato
+void push(Node_T<T> first, T data, bool inOrder = false) // T como tipo T porque en la definición de la función se define el tipo de dato
 {
-    auto it = first;
-    while (it->next)
+    if (inOrder)
     {
-        it = it->next;
+        auto it = first;
+        while (it->next)
+        {
+            if (it->next->data < data)
+            {
+                it = it->next;
+            }
+            else
+            {
+                shared_ptr<Node<T>> new_node = make_shared<Node<T>>(Node<T>{data, it->next, create_random_id()});
+                it->next = new_node;
+                return;
+            }
+        }
     }
-    shared_ptr<Node<T>> new_node = make_shared<Node<T>>(Node<T>{data, nullptr, create_random_id()});
-    it->next = new_node;
+    else
+    {
+        auto it = first;
+        while (it->next)
+        {
+            it = it->next;
+        }
+        shared_ptr<Node<T>> new_node = make_shared<Node<T>>(Node<T>{data, nullptr, create_random_id()});
+        it->next = new_node;
+    }
+
 }
 
 template <typename T>
