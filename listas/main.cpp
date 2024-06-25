@@ -174,7 +174,8 @@ int main()
         cout << "1. Añadir contacto" << endl;
         cout << "2. Eliminar contacto" << endl;
         cout << "3. Buscar contacto" << endl;
-        cout << "4. Mostrar todos los contactos" << endl
+        cout << "4. Mostrar todos los contactos" << endl;
+        cout << "5. Salir"
              << endl;
         cout << "¿Qué quieres hacer?: ";
 
@@ -205,7 +206,7 @@ int main()
                 cout << it->data.name << " " << it->data.telephone << " " << it->id << endl;
                 it = it->next;
             }
-            cout << "Introduce la id del contacto que quieres eliminar: ";
+            cout << endl << "Introduce la id del contacto que quieres eliminar: ";
             cin >> id;
             remove(start, id);
             cout << "Contactro eliminado correctamente" << endl << endl;
@@ -230,6 +231,10 @@ int main()
                                       { cout << p.name << " " << p.telephone << endl;});
             cout << endl;
             break;
+        }
+        case 5:
+        {
+            return 0;
         }
         default:
         {
