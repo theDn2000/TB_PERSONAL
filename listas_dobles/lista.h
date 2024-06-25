@@ -25,7 +25,7 @@ string create_random_id();
 P_Node push_back(P_Node const & head, int data);
 P_Node push_front(P_Node const & head, int data);
 P_Node push_at(P_Node const & head, int data, int pos);
-P_Node push_in_order(P_Node const & head, int data, bool asc = true);
+P_Node push_in_order(P_Node const & head, int data, bool asc);
 
 P_Node pop_front(P_Node const & head);
 P_Node pop_back(P_Node const & head);
