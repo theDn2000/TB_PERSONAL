@@ -107,9 +107,10 @@ P_Node pop_front(P_Node const & head)
     }
     else
     {
+        auto it = head;
         head->next->prev = nullptr;
-        // return it
-        return head->next;
+        return it
+        //return head->next;
     }
 }
 
@@ -131,6 +132,7 @@ P_Node pop_back(P_Node const & head)
             it = it->next;
         }
         it->prev->next = nullptr;
+        it->prev = nullptr;
         // return it
         return  it->prev;
     }
