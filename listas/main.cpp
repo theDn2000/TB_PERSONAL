@@ -227,7 +227,8 @@ int main()
         case 4:
         {
             imprimir_for_each<Person>(start, [](Person p)
-                                      { cout << p.name << " " << p.telephone << endl << endl;});
+                                      { cout << p.name << " " << p.telephone << endl;});
+            cout << endl;
             break;
         }
         default:
