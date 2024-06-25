@@ -164,7 +164,7 @@ int main()
 
     while (true)
     // Wait 1 second
-    
+
 
     {
         // Agenda [añadir, eliminar, buscar, mostrar]
@@ -192,16 +192,23 @@ int main()
             cout << "Telefono: ";
             cin >> telephone;
             push(start, Person{name, telephone});
-            cout << "Contacto añadido correctamente" << endl;
+            cout << "Contacto añadido correctamente" << endl << endl;
             break;
         }
         case 2:
         {
             string id;
             cout << "Introduce la id: ";
+            // Muestra todos los contactos y sus id
+            auto it = start;
+            while (it)
+            {
+                cout << it->data.name << " " << it->data.telephone << " " << it->id << endl;
+                it = it->next;
+            }
             cin >> id;
             remove(start, id);
-            cout << "Contactro eliminado correctamente" << endl;
+            cout << "Contactro eliminado correctamente" << endl << endl;
             break;
         }
         case 3:
@@ -212,19 +219,19 @@ int main()
             auto v = find_persons(start, name);
             for (auto elem : v)
             {
-                cout << elem->data.name << " " << elem->data.telephone << endl;
+                cout << elem->data.name << " " << elem->data.telephone << endl << endl;
             }
             break;
         }
         case 4:
         {
             imprimir_for_each<Person>(start, [](Person p)
-                                      { cout << p.name << " " << p.telephone << endl; });
+                                      { cout << p.name << " " << p.telephone << endl << endl;});
             break;
         }
         default:
         {
-            cout << "Por favor, selecciona una de las opciones posibles" << endl;
+            cout << "Por favor, selecciona una de las opciones posibles" << endl << endl;
             break;
         }
         }
