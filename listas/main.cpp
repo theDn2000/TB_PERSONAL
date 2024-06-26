@@ -233,16 +233,8 @@ vector<shared_ptr<Node<Person>>> find_persons(Node_T<Person> first, string name)
 
 int main()
 {
-    // Pide el numero de filas y columnas
-    cout << "Introduce el numero de filas: ";
-    int rows
-    cin >> rows;
-    cout << "Introduce el numero de columnas: ";
-    int cols;
-    cin >> cols;
-
-    // Crea la matriz
-    Matrix m{rows, cols, vector<vector<int>>(rows, vector<int>(cols))};
+    // Inicializa la matriz
+    Matrix m{0, 0, vector<vector<int>>()};
 
     // Rellena la matriz
     cin >> m;
