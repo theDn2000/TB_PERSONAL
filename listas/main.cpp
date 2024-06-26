@@ -38,6 +38,10 @@ struct Matrix
 
 ostream &operator<< (ostream &os, Matrix const &m)
 {
+    if (typeid(os) == typeid(ofstream)) // Lo estamos escribiendo en un archivo
+    {
+        os << m.rows << " " << m.cols << endl;
+    }
     //os << "[";
     for (int i{0}; i < m.rows; i++)
     {
@@ -234,7 +238,7 @@ vector<shared_ptr<Node<Person>>> find_persons(Node_T<Person> first, string name)
 int main()
 {
     // Inicializa la matriz
-    Matrix m{0, 0, vector<vector<int>>()};
+    Matrix m{0, 0, vector<vector<int>>()}; // Realmente es mejor guardarlo como un array y luego separar
 
     // Rellena la matriz
     cin >> m;
