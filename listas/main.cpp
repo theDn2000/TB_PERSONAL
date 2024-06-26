@@ -271,7 +271,8 @@ int main()
     for (int i{0}; i < n; i++)
     {
         Person p;
-        v.push_back(cin >> p);
+        cin >> p; 
+        v.push_back(p);
     }
 
     // Guarda las personas en un archivo
