@@ -36,7 +36,8 @@ ostream &operator<< (ostream &os, Person const &p)
 
 istream &operator>> (istream &is, Person &p)
 {
-    is >> p.name >> " " >> p.telephone;
+    // El mensaje es: Dani 657885441, almacena los datos
+    is >> p.name >> p.telephone;
     return is;
 }
 
