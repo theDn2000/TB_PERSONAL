@@ -234,10 +234,10 @@ vector<shared_ptr<Node<Person>>> find_persons(Node_T<Person> first, string name)
 int main()
 {
     // Pide el numero de filas y columnas
-    cout >> "Introduce el numero de filas: ";
+    cout << "Introduce el numero de filas: ";
     int rows
     cin >> rows;
-    cout >> "Introduce el numero de columnas: ";
+    cout << "Introduce el numero de columnas: ";
     int cols;
     cin >> cols;
 
