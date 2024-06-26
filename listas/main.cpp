@@ -37,7 +37,6 @@ ostream &operator<< (ostream &os, Person const &p)
 
 istream &operator>> (istream &is, Person &p)
 {
-    // El mensaje es: Dani 657885441, almacena los datos
     is >> p.name >> p.telephone;
     return is;
 }
@@ -425,7 +424,7 @@ int main()
         }
         case 5:
         {
-            ofstream archivoPersonas("personas.txt");
+            ofstream archivoPersonas("personas.txt"::ios::app);
             if (!archivoPersonas)
             {
                 cout << "Error al crear el archivo" << endl;
@@ -437,7 +436,7 @@ int main()
                 archivoPersonas << p;
                 archivoPersonas << endl;
             });
-            //archivoPersonas.close();
+            archivoPersonas.close();
         }
         case 6:
         {
@@ -451,7 +450,7 @@ int main()
                 is >> p;
                 push(start, p);
             }
-            //archivoPersonasLectura.close();
+            archivoPersonasLectura.close();
         }
         case 7:
         {
