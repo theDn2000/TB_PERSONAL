@@ -38,7 +38,7 @@ struct Matrix
 
 ostream &operator<< (ostream &os, Matrix const &m)
 {
-    os << "[";
+    //os << "[";
     for (int i{0}; i < m.rows; i++)
     {
         for (int j{0}; j < m.cols; j++)
@@ -47,7 +47,7 @@ ostream &operator<< (ostream &os, Matrix const &m)
         }
         os << endl;
     }
-    os << "]";
+    //os << "]";
     return os;
 
 }
