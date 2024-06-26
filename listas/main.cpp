@@ -3,6 +3,7 @@
 #include <functional>
 #include <string>
 #include <chrono>
+#include <fstream>
 
 using namespace std;
 
@@ -25,6 +26,48 @@ bool operator==(Person const &p1, Person const &p2)
 bool operator >(Person const &p1, Person const &p2)
 {
     return p1.name > p2.name;
+}
+
+
+struct Matrix
+{
+    int rows;
+    int cols;
+    vector<vector<int>> data;
+};
+
+ostream &operator<< (ostream &os, Matrix const &m)
+{
+    os << "[";
+    for (int i{0}; i < m.rows; i++)
+    {
+        for (int j{0}; j < m.cols; j++)
+        {
+            os << m.data[i][j] << " ";
+        }
+        os << endl;
+    }
+    os << "]";
+    return os;
+
+}
+
+istream &operator>> (istream &is, Matrix &m)
+{
+    cout << "Introduce el numero de filas: ";
+    is >> m.rows;
+    cout << "Introduce el numero de columnas: ";
+    is >> m.cols;
+    m.data = vector<vector<int>>(m.rows, vector<int>(m.cols));
+    for (int i{0}; i < m.rows; i++)
+    {
+        for (int j{0}; j < m.cols; j++)
+        {
+            cout << "Introduce el valor de la fila " << i << " columna " << j << ": ";
+            is >> m.data[i][j];
+        }
+    }
+    return is;
 }
 
 string create_random_id()
@@ -190,6 +233,34 @@ vector<shared_ptr<Node<Person>>> find_persons(Node_T<Person> first, string name)
 
 int main()
 {
+    // Pide el numero de filas y columnas
+    cout >> "Introduce el numero de filas: ";
+    int rows
+    cin >> rows;
+    cout >> "Introduce el numero de columnas: ";
+    int cols;
+    cin >> cols;
+
+    // Crea la matriz
+    Matrix m{rows, cols, vector<vector<int>>(rows, vector<int>(cols))};
+
+    // Rellena la matriz
+    cin >> m;
+
+    // Muestra la matriz
+    cout << endl << m << endl;
+
+
+
+
+
+
+
+
+
+
+
+    /*
     shared_ptr<Node<Person>> start = make_shared<Node<Person>>(Node<Person>{Person{"Dani", "666666666"}, nullptr, create_random_id()});
     // shared_ptr<Node<int>> other = make_shared<Node<int>>(Node<int>{2, nullptr});
     // shared_ptr<Node<int>> other3 = make_shared<Node<int>>(Node<int>{3, nullptr});
@@ -279,6 +350,7 @@ int main()
         }
         }
     }
+    */
 
     /*
     // Imprimir_elem
