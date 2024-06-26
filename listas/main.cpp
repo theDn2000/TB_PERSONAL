@@ -346,9 +346,9 @@ int main()
     // shared_ptr<Node<int>> other = make_shared<Node<int>>(Node<int>{2, nullptr});
     // shared_ptr<Node<int>> other3 = make_shared<Node<int>>(Node<int>{3, nullptr});
 
-    //push(start, Person{"Pepe", "777777777"});
-    //push(start, Person{"Jose", "888888888"});
-    //push(start, Person{"Rodri", "999999999"});
+    push(start, Person{"Pepe", "777777777"});
+    push(start, Person{"Jose", "888888888"});
+    push(start, Person{"Rodri", "999999999"});
 
     while (true)
     // Wait 1 second
