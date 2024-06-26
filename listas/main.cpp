@@ -445,7 +445,8 @@ int main()
 
             while(getline(archivoPersonasLectura, line))
             {
-                line >> p
+                istringstream is(line);
+                is >> p;
                 push(start, p);
             }
             archivoPersonasLectura.close();
