@@ -431,6 +431,7 @@ int main()
                 cout << "Error al crear el archivo" << endl;
                 return 1;
             }
+            cout << "Guardando en archivo..." << endl;
             imprimir_for_each<Person>(start, [&archivoPersonas](Person p)
             {
                 archivoPersonas << p;
