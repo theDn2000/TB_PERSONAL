@@ -424,7 +424,7 @@ int main()
         }
         case 5:
         {
-            ofstream archivoPersonas("personas.txt"::ios::app);
+            ofstream archivoPersonas("personas.txt",ios::app);
             if (!archivoPersonas)
             {
                 cout << "Error al crear el archivo" << endl;
