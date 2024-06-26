@@ -28,6 +28,20 @@ bool operator >(Person const &p1, Person const &p2)
     return p1.name > p2.name;
 }
 
+ostream &operator<< (ostream &os, Person const &p)
+{
+    os << "Nombre: " << p.name << " Teléfono: " << p.telephone;
+    return os;
+}
+
+istream &operator>> (istream &is, Person &p)
+{
+    cout << "Introduce el nombre: ";
+    is >> p.name;
+    cout << "Introduce el teléfono: ";
+    is >> p.telephone;
+    return is;
+}
 
 struct Matrix
 {
@@ -245,6 +259,50 @@ vector<shared_ptr<Node<Person>>> find_persons(Node_T<Person> first, string name)
 
 int main()
 {
+    // EJERCICIO PERSONA
+    vector<Person> v;
+    
+    // Número de personas a añadir
+    cout << "Cuantas personas quieres añadir?: ";
+    int n;
+    cin >> n;
+
+    // Añade personas
+    for (int i{0}; i < n; i++)
+    {
+        Person p;
+        v.push_back(cin >> p);
+    }
+
+    // Guarda las personas en un archivo
+    ofstream archivoPersonas("personas.txt");
+    if (!archivoPersonas)
+    {
+        cout << "Error al crear el archivo" << endl;
+        return 1;
+    }
+    for (auto elem : v)
+    {
+        archivoPersonas << elem << endl;
+    }
+    archivoPersonas.close();
+
+    // Muestra las personas en la terminal
+    ifstream archivoPersonasLectura("personas.txt");
+    std::string line;
+
+    while(getline(archivoPersonasLectura, line))
+    {
+        cout << line << endl;
+    }
+
+    archivoPersonasLectura.close();
+
+
+
+
+    /*
+    // EJERCICIO MATRIZ
     // Inicializa la matriz
     Matrix m{0, 0, vector<vector<int>>()}; // Realmente es mejor guardarlo como un array y luego separar
 
@@ -276,7 +334,7 @@ int main()
     }
 
     archivoMatrizLectura.close();
-
+    */
 
 
 
