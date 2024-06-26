@@ -30,16 +30,13 @@ bool operator >(Person const &p1, Person const &p2)
 
 ostream &operator<< (ostream &os, Person const &p)
 {
-    os << "Nombre: " << p.name << " Teléfono: " << p.telephone;
+    os << p.name << p.telephone;
     return os;
 }
 
 istream &operator>> (istream &is, Person &p)
 {
-    cout << "Introduce el nombre: ";
-    is >> p.name;
-    cout << "Introduce el teléfono: ";
-    is >> p.telephone;
+    is >> p.name >> p.telephone;
     return is;
 }
 
@@ -259,6 +256,7 @@ vector<shared_ptr<Node<Person>>> find_persons(Node_T<Person> first, string name)
 
 int main()
 {
+    /*
     // EJERCICIO PERSONA
     vector<Person> v;
     
@@ -299,7 +297,7 @@ int main()
     }
 
     archivoPersonasLectura.close();
-
+    */
 
 
 
@@ -342,17 +340,14 @@ int main()
 
 
 
-
-
-
-    /*
+    // AGENDA
     shared_ptr<Node<Person>> start = make_shared<Node<Person>>(Node<Person>{Person{"Dani", "666666666"}, nullptr, create_random_id()});
     // shared_ptr<Node<int>> other = make_shared<Node<int>>(Node<int>{2, nullptr});
     // shared_ptr<Node<int>> other3 = make_shared<Node<int>>(Node<int>{3, nullptr});
 
-    push(start, Person{"Pepe", "777777777"});
-    push(start, Person{"Jose", "888888888"});
-    push(start, Person{"Rodri", "999999999"});
+    //push(start, Person{"Pepe", "777777777"});
+    //push(start, Person{"Jose", "888888888"});
+    //push(start, Person{"Rodri", "999999999"});
 
     while (true)
     // Wait 1 second
@@ -367,7 +362,9 @@ int main()
         cout << "2. Eliminar contacto" << endl;
         cout << "3. Buscar contacto" << endl;
         cout << "4. Mostrar todos los contactos" << endl;
-        cout << "5. Salir"
+        cout << "5. Guardar en archivo" << endl;
+        cout << "6. Importar contactos desde archivo" << endl;
+        cout << "7. Salir"
              << endl;
         cout << "¿Qué quieres hacer?: ";
 
@@ -425,6 +422,35 @@ int main()
             break;
         }
         case 5:
+        {
+            ofstream archivoPersonas("personas.txt");
+            if (!archivoPersonas)
+            {
+                cout << "Error al crear el archivo" << endl;
+                return 1;
+            }
+            imprimir_for_each<Person>(start, [&archivoPersonas](Person p)
+            {
+                archivoPersonas << p;
+                archivoPersonas << endl;
+            });
+            archivoPersonas.close();
+        }
+        case 6:
+        {
+            ifstream archivoPersonasLectura("personas.txt");
+            std::string line;
+
+            while(getline(archivoPersonasLectura, line))
+            {
+                line >> p
+                push(start, p);
+            }
+            archivoPersonasLectura.close();
+        }
+
+
+        case 7:
         {
             return 0;
         }
