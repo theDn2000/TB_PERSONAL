@@ -436,7 +436,7 @@ int main()
                 archivoPersonas << p;
                 archivoPersonas << endl;
             });
-            archivoPersonas.close();
+            //archivoPersonas.close();
         }
         case 6:
         {
@@ -450,10 +450,8 @@ int main()
                 is >> p;
                 push(start, p);
             }
-            archivoPersonasLectura.close();
+            //archivoPersonasLectura.close();
         }
-
-
         case 7:
         {
             return 0;
