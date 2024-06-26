@@ -239,10 +239,31 @@ int main()
     // Rellena la matriz
     cin >> m;
 
-    // Muestra la matriz
+    // Muestra la matriz en la terminal
     cout << endl << m << endl;
 
 
+    // Guarda la matriz en un archivo
+    ofstream archivoMatriz("matriz.txt");
+    if (!archivoMatriz)
+    {
+        cout << "Error al crear el archivo" << endl;
+        return 1;
+    }
+    archivoMatriz << m;
+
+    archivoMatriz.close();
+
+    // Lee el archivo y muestra la matriz en la terminal
+    ifstream archivoMatrizLectura("matriz.txt");
+    std::string line;
+
+    while(getline(archivoMatrizLectura, line))
+    {
+        cout << line << endl;
+    }
+
+    archivoMatrizLectura.close();
 
 
 
