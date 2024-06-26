@@ -440,6 +440,7 @@ int main()
         {
             ifstream archivoPersonasLectura("personas.txt");
             std::string line;
+            Person p;
 
             while(getline(archivoPersonasLectura, line))
             {
