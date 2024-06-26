@@ -437,6 +437,7 @@ int main()
                 archivoPersonas << endl;
             });
             archivoPersonas.close();
+            break;
         }
         case 6:
         {
@@ -451,6 +452,7 @@ int main()
                 push(start, p);
             }
             archivoPersonasLectura.close();
+            break;
         }
         case 7:
         {
