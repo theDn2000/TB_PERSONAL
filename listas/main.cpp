@@ -12,6 +12,21 @@ struct Person
     string telephone;
 };
 
+bool operator<(Person const &p1, Person const &p2)
+{
+    return p1.name < p2.name;
+}
+
+bool operator==(Person const &p1, Person const &p2)
+{
+    return p1.name == p2.name;
+}
+
+bool operator >(Person const &p1, Person const &p2)
+{
+    return p1.name > p2.name;
+}
+
 string create_random_id()
 {
     string id;
