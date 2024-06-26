@@ -292,6 +292,7 @@ int main()
     ifstream archivoPersonasLectura("personas.txt");
     std::string line;
 
+    cout << endl << "Personas en el archivo: " << endl;
     while(getline(archivoPersonasLectura, line))
     {
         cout << line << endl;
