@@ -40,20 +40,28 @@ ostream &operator<< (ostream &os, Matrix const &m)
 {
     if (typeid(os) == typeid(ofstream)) // Lo estamos escribiendo en un archivo
     {
-        os << m.rows << " " << m.cols << endl;
-    }
-    //os << "[";
-    for (int i{0}; i < m.rows; i++)
-    {
-        for (int j{0}; j < m.cols; j++)
+        for (int i{0}; i < m.rows; i++)
         {
-            os << m.data[i][j] << " ";
+            for (int j{0}; j < m.cols; j++)
+            {
+                os << m.data[i][j] << " ";
+            }
         }
-        os << endl;
     }
-    //os << "]";
+    else
+    {
+        //os << "[";
+        for (int i{0}; i < m.rows; i++)
+        {
+            for (int j{0}; j < m.cols; j++)
+            {
+                os << m.data[i][j] << " ";
+            }
+            os << endl;
+        }
+        //os << "]";
+    }
     return os;
-
 }
 
 istream &operator>> (istream &is, Matrix &m)
