@@ -9,6 +9,7 @@ int main()
     cout << st1 << endl;
     PNode head = nullptr;
     push(head, st1);
+    push(head, st2);
 
     forEach(head, [](Student const &st)
     {
