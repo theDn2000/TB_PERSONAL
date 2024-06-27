@@ -26,10 +26,11 @@ enable_testing()
 add_executable(
   runTests
   main.cpp
-  functions_test.cpp
   node_test.cpp
+  utils_test.cpp
   ../node.cpp
   ../student.cpp
+  ../utils.cpp
 )
 target_link_libraries(
   runTests

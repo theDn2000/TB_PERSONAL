@@ -31,3 +31,16 @@ PNode &push(PNode &head, Student const &st); // Esta funcion devuelve el head PO
  * Iterates over the list and performs f
  */
 void forEach(PNode const &head, LambdaForEach const &f);
+
+
+
+
+
+
+/**
+ * Filters the list
+ * @param head The head of the list
+ * @param f The function to filter
+ * @return A vector with the nodes that satisfy the condition
+ */
+vector<PNode> filter(PNode const &head, function<bool(Student const &)> const &f);

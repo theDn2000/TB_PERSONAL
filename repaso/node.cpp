@@ -37,3 +37,17 @@ void forEach(PNode const &head, LambdaForEach const &f)
         it = it->next;
     }
 }
+
+vector<PNode> filter(PNode const &head, function<bool(Student const &)> const &f)
+{
+    vector<PNode> res;
+    auto it = head;
+    while (it->next)
+    {
+        if (f(it->data))
+        {
+            res.push_back(it);
+        }
+    }
+    return res;
+}
