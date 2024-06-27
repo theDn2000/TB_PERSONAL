@@ -1,9 +1,7 @@
 #pragma once
 
-#include "student.h"
-#include <memory>
-#include<functional>
+#include <string>
 
 using namespace std;
 
-string uuid();
+string uuid(int size);

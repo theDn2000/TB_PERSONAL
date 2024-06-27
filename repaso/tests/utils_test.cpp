@@ -1,16 +1,28 @@
+#include <gtest/gtest.h>
+#include "../utils.h"
 
-#include "gtest/gtest.h"
-#include "../node.h"
-
-
-using namespace std;
-
-// Test de include
-
-// Compruebo que si incluye, devuelve true
-TEST(Push, push_head_nullptr)
+TEST(uuid, uuid_size)
 {
-    int size = 10;
-    string uuid = "";
-    EXPECT_EQ(head->data, st1); // Comparacion estudiantes
+  int size = 10;
+  string id = "";
+  id = uuid(size);
+  EXPECT_EQ(id.size(), size);
+}
+
+TEST(uuid, uuid_not_empty)
+{
+  int size = 10;
+  string id = "";
+  id = uuid(size);
+  EXPECT_TRUE(id != "");
+}
+
+TEST(uuid, uuid_not_equal)
+{
+  int size = 10;
+  string uuid1 = "";
+  string uuid2 = "";
+  uuid1 = uuid(size);
+  uuid2 = uuid(size);
+  EXPECT_TRUE(uuid1 != uuid2);
 }
