@@ -17,16 +17,7 @@ ostream &operator<<(ostream &os, Student const &s);
 
 bool operator==(Student const &st1, Student const &st2);
 
-/* // COMENTADO POR EL MOMENTO
-istream &operator>>(istream &is, Student &s)
-{
-    is >> s.id;
-    is >> s.name;
-    string aux;
-    while(is >> aux)
-    {
-        s.subjects.push_back(aux);
-    }
-    return is;
-}
-*/
+
+
+istream &operator>>(istream &is, Student &s);
+

@@ -19,3 +19,9 @@ bool operator==(Student const &st1, Student const &st2)
 {
     return st1.id == st2.id;
 }
+
+// (name Alberto)(subjects Progra 1, Progra 2, EDA)
+istream &operator>>(istream &is, Student &s)
+{
+    string line
+}

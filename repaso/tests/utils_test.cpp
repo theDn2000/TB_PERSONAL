@@ -26,3 +26,10 @@ TEST(uuid, uuid_not_equal)
   uuid2 = uuid(size);
   EXPECT_TRUE(uuid1 != uuid2);
 }
+
+TEST(splitInParenthesis, splitInParenthesis_size)
+{
+  string s = "(name Alberto)(subjects Progra 1, Progra 2, EDA)";
+  auto result = splitInParenthesis(s);
+  EXPECT_EQ(result.size(), 2);
+}

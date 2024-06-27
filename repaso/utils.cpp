@@ -9,3 +9,26 @@ string uuid(int size)
   }
   return uuid;
 }
+
+// (name Alberto)(subjects Progra 1, Progra 2, EDA)
+vector<string> splitInParenthesis(string const &s)
+{
+    vector<string> result;
+    string temp = "";
+    for (auto c : s)
+    {
+        if (c == '(')
+        {
+        temp = "";
+        }
+        else if (c == ')')
+        {
+        result.push_back(temp);
+        }
+        else
+        {
+        temp += c;
+        }
+    }
+    return result;
+}
