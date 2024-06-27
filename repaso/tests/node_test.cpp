@@ -23,8 +23,8 @@ TEST(Filter, test_filter)
 {
     Student st1{"1234", "Alberto", {"Progra 1", "Progra 2", "EDA"}};
     Student st2{"1234", "Luisa", {"Progra 1", "Progra 2", "EDA"}};
-    Student st2{"1234", "Roberto", {"Progra 1", "Progra 2", "EDA"}};
-    Student st2{"1234", "Tomas", {"Progra 1", "Progra 2", "EDA"}};
+    Student st3{"1234", "Roberto", {"Progra 1", "Progra 2", "EDA"}};
+    Student st4{"1234", "Tomas", {"Progra 1", "Progra 2", "EDA"}};
     PNode head = nullptr;
     head = push(head, st1);
     head = push(head, st2);
