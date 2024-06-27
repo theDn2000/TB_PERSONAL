@@ -28,7 +28,8 @@ add_executable(
   main.cpp
   functions_test.cpp
   node_test.cpp
-  ../functions.cpp
+  ../node.cpp
+  ../student.cpp
 )
 target_link_libraries(
   runTests
