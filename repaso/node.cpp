@@ -78,7 +78,7 @@ PNode findLast(PNode const &head, function<bool(Student const &)> const &f)
     {
         if (f(it->data))
         {
-            PNode res = it;
+            res = it;
         }
         it = it->next;
     }
