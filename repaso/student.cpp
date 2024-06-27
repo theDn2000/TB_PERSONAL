@@ -23,5 +23,7 @@ bool operator==(Student const &st1, Student const &st2)
 // (name Alberto)(subjects Progra 1, Progra 2, EDA)
 istream &operator>>(istream &is, Student &s)
 {
-    string line
+    string line;
+    getline(is, line);
+    // (name Alberto)(subjects Progra 1, Progra 2, EDA)
 }
