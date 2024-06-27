@@ -33,3 +33,10 @@ TEST(splitInParenthesis, splitInParenthesis_size)
   auto result = splitInParenthesis(s);
   EXPECT_EQ(result.size(), 2);
 }
+
+TEST(splitInSpaces, splitInSpaces_size)
+{
+  string s = "name Alberto subjects Progra 1, Progra 2, EDA";
+  auto result = split(s, " ");
+  EXPECT_EQ(result.size(), 5);
+}

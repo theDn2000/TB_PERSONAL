@@ -32,3 +32,23 @@ vector<string> splitInParenthesis(string const &s)
     }
     return result;
 }
+
+vector<string> split(string const &s, string separator)
+{
+    vector<string> result;
+    string temp = "";
+    for (auto c : s)
+    {
+        if (c == separator[0])
+        {
+            result.push_back(temp);
+            temp = "";
+        }
+        else
+        {
+            temp += c;
+        }
+    }
+    result.push_back(temp);
+    return result;
+}
