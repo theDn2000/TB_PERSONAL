@@ -28,7 +28,7 @@ TEST(Filter, test_filter)
     head = push(head, st2);
     auto res = filter(head, [](Student const &st)
     {
-        if (st.name == "Luisa")
+        if (st.name == "Alberto")
         {
             return true;
         }
@@ -38,5 +38,5 @@ TEST(Filter, test_filter)
         }
     });
     EXPECT_EQ(res.size(), 1);
-    EXPECT_EQ(res[0]->data, st2);
+    EXPECT_EQ(res[0]->data, st1);
 }
