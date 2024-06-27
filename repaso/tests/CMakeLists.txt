@@ -24,7 +24,6 @@ enable_testing()
 
 # el main, el test, el archivo que quiero probar
 add_executable(
-  runTests
   main.cpp
   node_test.cpp
   utils_test.cpp
