@@ -14,3 +14,8 @@ ostream &operator<<(ostream &os, Student const &s)
     }
     return os;
 }
+
+bool operator==(Student const &st1, Student const &st2)
+{
+    return st1.id == st2.id;
+}

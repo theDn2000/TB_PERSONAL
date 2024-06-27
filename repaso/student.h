@@ -15,6 +15,7 @@ struct Student
 
 ostream &operator<<(ostream &os, Student const &s);
 
+bool operator==(Student &st1, Student const &st2);
 
 /* // COMENTADO POR EL MOMENTO
 istream &operator>>(istream &is, Student &s)
