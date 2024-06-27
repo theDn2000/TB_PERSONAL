@@ -61,7 +61,7 @@ TEST(findLast, test_findLast)
     head = push(head, st5);
     auto res = findLast(head, [](Student const &st)
     {
-        if (st.name== "Tomas")
+        if (st.name == "Tomas")
         {
             return true;
         }
@@ -70,5 +70,6 @@ TEST(findLast, test_findLast)
             return false;
         }
     });
-    EXPECT_EQ(res->data, st4);
+    EXPECT_EQ(res->data, st5);
+    
 }
