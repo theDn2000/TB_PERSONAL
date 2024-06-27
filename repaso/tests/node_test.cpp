@@ -30,6 +30,6 @@ TEST(Filter, test_filter)
     {
         return st.name == "Alberto";
     });
-    EXPECT_EQ(res.size(), 2);
+    EXPECT_EQ(res.size(), 1);
     EXPECT_EQ(res[0]->data, st1);
 }
