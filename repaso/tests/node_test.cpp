@@ -70,6 +70,33 @@ TEST(findLast, test_findLast)
             return false;
         }
     });
-    EXPECT_EQ(res->data, st5);
-    
+    EXPECT_EQ(res->data, st5); 
+}
+
+// COmpruebo funcion findlast
+TEST(findLast, test_findLast_nonexistent)
+{
+    Student st1{"1234", "Alberto", {"Progra 1", "Progra 2", "EDA"}};
+    Student st2{"1234", "Luisa", {"Progra 1", "Progra 2", "EDA"}};
+    Student st3{"1234", "Roberto", {"Progra 1", "Progra 2", "EDA"}};
+    Student st4{"1234", "Tomas", {"Progra 1", "Progra 2", "EDA"}};
+    Student st5{"1235", "Tomas", {"Progra 1", "Progra 2", "EDA"}};
+    PNode head = nullptr;
+    head = push(head, st1);
+    head = push(head, st2);
+    head = push(head, st3);
+    head = push(head, st4);
+    head = push(head, st5);
+    auto res = findLast(head, [](Student const &st)
+    {
+        if (st.name == "Jose")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    });
+    EXPECT_EQ(res->data, nullptr); 
 }
