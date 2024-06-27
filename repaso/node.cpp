@@ -42,7 +42,7 @@ vector<PNode> filter(PNode const &head, function<bool(Student const &)> const &f
 {
     vector<PNode> res;
     auto it = head;
-    while (it->next)
+    while (it->next->next)
     {
         if (f(it->data))
         {
