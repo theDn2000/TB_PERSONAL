@@ -23,9 +23,18 @@ TEST(Filter, test_filter)
 {
     Student st1{"1234", "Alberto", {"Progra 1", "Progra 2", "EDA"}};
     Student st2{"1234", "Luisa", {"Progra 1", "Progra 2", "EDA"}};
+    Student st2{"1234", "Roberto", {"Progra 1", "Progra 2", "EDA"}};
+    Student st2{"1234", "Tomas", {"Progra 1", "Progra 2", "EDA"}};
     PNode head = nullptr;
     head = push(head, st1);
     head = push(head, st2);
+    head = push(head, st3);
+    head = push(head, st4);
+    cout << "Lista de estudiantes" << endl;
+    forEach(head, [](Student const &st)
+    {
+        cout << st << endl;
+    });
     auto res = filter(head, [](Student const &st)
     {
         if (st.name == "Luisa")

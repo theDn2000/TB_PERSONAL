@@ -47,7 +47,6 @@ vector<PNode> filter(PNode const &head, function<bool(Student const &)> const &f
         if (f(it->data))
         {
             res.push_back(it);
-
         }
         it = it->next;
     }
