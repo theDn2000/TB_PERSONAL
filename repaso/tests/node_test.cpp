@@ -30,11 +30,6 @@ TEST(Filter, test_filter)
     head = push(head, st2);
     head = push(head, st3);
     head = push(head, st4);
-    cout << "Lista de estudiantes" << endl;
-    forEach(head, [](Student const &st)
-    {
-        cout << st << endl;
-    });
     auto res = filter(head, [](Student const &st)
     {
         if (st.name == "Luisa")
