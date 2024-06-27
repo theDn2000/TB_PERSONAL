@@ -52,6 +52,7 @@ TEST(findLast, test_findLast)
     Student st2{"1234", "Luisa", {"Progra 1", "Progra 2", "EDA"}};
     Student st3{"1234", "Roberto", {"Progra 1", "Progra 2", "EDA"}};
     Student st4{"1234", "Tomas", {"Progra 1", "Progra 2", "EDA"}};
+    Student st4{"1235", "Tomas", {"Progra 1", "Progra 2", "EDA"}};
     PNode head = nullptr;
     head = push(head, st1);
     head = push(head, st2);
@@ -59,7 +60,7 @@ TEST(findLast, test_findLast)
     head = push(head, st4);
     auto res = findLast(head, [](Student const &st)
     {
-        if (st.id == "1234")
+        if (st.name== "Tomas")
         {
             return true;
         }
@@ -68,5 +69,5 @@ TEST(findLast, test_findLast)
             return false;
         }
     });
-    EXPECT_EQ(res->data.name, st4.name);
+    EXPECT_EQ(res->data, st4);
 }
