@@ -26,4 +26,5 @@ istream &operator>>(istream &is, Student &s)
     string line;
     getline(is, line);
     // (name Alberto)(subjects Progra 1, Progra 2, EDA)
+    return is;
 }
