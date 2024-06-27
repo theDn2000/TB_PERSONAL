@@ -44,3 +44,29 @@ TEST(Filter, test_filter)
     EXPECT_EQ(res.size(), 1);
     EXPECT_EQ(res[0]->data, st4);
 }
+
+// COmpruebo funcion findlast
+TEST(findLast, test_findLast)
+{
+    Student st1{"1234", "Alberto", {"Progra 1", "Progra 2", "EDA"}};
+    Student st2{"1234", "Luisa", {"Progra 1", "Progra 2", "EDA"}};
+    Student st3{"1234", "Roberto", {"Progra 1", "Progra 2", "EDA"}};
+    Student st4{"1234", "Tomas", {"Progra 1", "Progra 2", "EDA"}};
+    PNode head = nullptr;
+    head = push(head, st1);
+    head = push(head, st2);
+    head = push(head, st3);
+    head = push(head, st4);
+    auto res = findLast(head, [](Student const &st)
+    {
+        if (st.id == "1234")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    });
+    EXPECT_EQ(res->data.name, st4.name);
+}

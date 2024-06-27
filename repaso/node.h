@@ -44,3 +44,8 @@ void forEach(PNode const &head, LambdaForEach const &f);
  * @return A vector with the nodes that satisfy the condition
  */
 vector<PNode> filter(PNode const &head, function<bool(Student const &)> const &f);
+
+
+PNode find(PNode const &head, function<bool(Student const &)> const &f);
+
+PNode findLast(PNode const &head, function<bool(Student const &)> const &f);

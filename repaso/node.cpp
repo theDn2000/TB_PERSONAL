@@ -52,3 +52,35 @@ vector<PNode> filter(PNode const &head, function<bool(Student const &)> const &f
     }
     return res;
 }
+
+// Finds the first element of a list of nodes
+PNode find(PNode const &head, function<bool(Student const &)> const &f)
+{
+  auto it = head;
+  while (it)
+  {
+    if (f(it->data))
+    {
+      return it;
+    }
+    it = it->next;
+  }
+  return nullptr;
+}
+
+
+// Finds the last element of a list of nodes
+PNode findLast(PNode const &head, function<bool(Student const &)> const &f)
+{
+    PNode res = nullptr;
+    auto it = head;
+    while (it)
+    {
+        if (f(it->data))
+        {
+            PNode res = it;
+        }
+        it = it->next;
+    }
+    return res;
+}
