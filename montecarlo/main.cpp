@@ -139,7 +139,7 @@ int main() {
     };
 
     // Simulate robot motion and measurements
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 100; ++i) {
         // Simulate robot movement
         mcl.update_with_motion(5.0, 5.0);
 
