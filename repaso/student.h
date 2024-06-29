@@ -13,6 +13,8 @@ struct Student
     vector<string> subjects;
 };
 
+string serializeStudent(Student const &s);
+
 ostream &operator<<(ostream &os, Student const &s);
 
 bool operator==(Student const &st1, Student const &st2);

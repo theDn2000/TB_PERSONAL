@@ -52,3 +52,10 @@ vector<string> split(string const &s, string separator)
     result.push_back(temp);
     return result;
 }
+
+string & trim(string &s)
+{
+    s.erase(0, s.find_first_not_of(" \n\r\t"));
+    s.erase(s.find_last_not_of(" \n\r\t") + 1);
+    return s;
+}
