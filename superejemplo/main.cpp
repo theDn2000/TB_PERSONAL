@@ -36,6 +36,7 @@ int main()
     string name;
     PNode node;
     Student st;
+    vector<PNode> filtered_list;
 
     switch (option)
     {
@@ -51,10 +52,12 @@ int main()
     case 3:
       cout << "Ingrese el nombre o parte del nombre para filtrar: ";
       cin >> name;
-      filter(head, [name](Student const &st)
+      filtered_list = filter(head, [name](Student const &st)
             { return st.name.find(name) != string::npos; });
-      forEach(head, [](Student const &st)
-              { cout << st << endl; });
+      for (auto node : filtered_list)
+      {
+        cout << node->data << endl;
+      }
       break;
     case 4:
       cout << "Ingrese el nombre o parte del nombre para buscar: ";
