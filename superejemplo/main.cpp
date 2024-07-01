@@ -15,8 +15,15 @@ int main()
   */
   cout << "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl;
   cout << "|Bienvendio a la base de datos de estudiantes|" << endl;
-  cout << "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl;
+  cout << "----------------------------------------------" << endl;
   cout << "|1. Agregar estudiante                       |" << endl;
+  cout << "|2. Mostrar todos los estudiantes            |" << endl;
+  cout << "|3. Filtrar estudiantes                      |" << endl;
+  cout << "|4. Buscar estudiante (primero)              |" << endl;
+  cout << "|5. Buscar estudiante (ultimo)               |" << endl;
+  cout << "|6. Salir                                    |" << endl;
+  cout << "----------------------------------------------" << endl;
+
 
 
 
