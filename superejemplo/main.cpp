@@ -1,5 +1,8 @@
 #include "student.h"
 #include "node.h"
+#include <iostream>
+#include <sstream>
+#include <string> // Add this line to include the necessary header file for 'std::istringstream'
 
 int main()
 {
@@ -36,6 +39,9 @@ int main()
     int option;
     cin >> option;
     string name;
+    string subjects;
+    string total;
+    istringstream iss;
     PNode node;
     Student st;
     vector<PNode> filtered_list;
@@ -43,8 +49,12 @@ int main()
     switch (option)
     {
     case 1:
-      cout << "Ingrese los datos del estudiante: (name Alberto Valero)(subjects Progra I Progra 2 EDA)" << endl;
-      cin >> st;
+      cout << "Ingrese los datos del estudiante:" << endl;
+      cout << "Nombre: ";
+      cin >> name;
+      total = "(name " + name + ")(subjects Hola, esto, es, prueba II)";
+      iss.str(total);
+      iss >> st;
       push(head, st);
       cout << "Estudiante agregado" << endl;
       break;
@@ -85,7 +95,5 @@ int main()
       cout << "Opción no válida" << endl;
       break;
     }
-    // Wait 1 second
-    std::this_thread::sleep_for(chrono::seconds(1));
   }
 }
