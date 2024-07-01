@@ -72,7 +72,7 @@ istream &operator>>(istream &is, Student &s)
 // "name Alberto Valero" --> "Alberto Valero"
 string parseName(string const &n)
 {
-  if (!n.starts_with("name"))
+  if (n.find("name") != 0)
   {
     return "";
   }
