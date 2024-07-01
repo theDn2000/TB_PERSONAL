@@ -53,6 +53,8 @@ int main()
       cin >> name;
       filter(head, [name](Student const &st)
             { return st.name.find(name) != string::npos; });
+      forEach(head, [](Student const &st)
+              { cout << st << endl; });
       break;
     case 4:
       cout << "Ingrese el nombre o parte del nombre para buscar: ";
