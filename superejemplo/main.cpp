@@ -45,19 +45,9 @@ int main()
     case 1:
       cout << "Ingrese los datos del estudiante: (name Alberto Valero)(subjects Progra I Progra 2 EDA)" << endl;
       cin >> st;
-      if (cin.fail())
-      {
-        cin.clear();
-        cin.ignore();
-        cout << "Error en el formato" << endl;
-        break;
-      }
-      else
-      {
-        push(head, st);
-        cout << "Estudiante agregado" << endl;
-        break;
-      }
+      push(head, st);
+      cout << "Estudiante agregado" << endl;
+      break;
     case 2:
       forEach(head, [](Student const &st)
               { cout << st << endl; });
@@ -90,6 +80,8 @@ int main()
       return 0;
       break;
     default:
+      cin.clear();
+      cin.ignore();
       cout << "Opción no válida" << endl;
       break;
     }
