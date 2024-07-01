@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <string> // Add this line to include the necessary header file for 'std::istringstream'
+#include <fstream>
 
 int main()
 {
@@ -86,6 +87,46 @@ int main()
                           { return st.name.find(name) != string::npos; });
       cout << node->data << endl;
       break;
+    case 6:
+      cout << "Escribiendo en archivo..." << endl;
+      ofstream archivoEstudiantes("estudiantes.txt",ios::app);
+      if (!archivoEstudiantes)
+      {
+        cout << "Error al crear el archivo" << endl;
+        return 1;
+      }
+      cout << "Guardando en archivo..." << endl;
+      forEach(head, [&archivoEstudiantes](Student s)
+      {
+        archivoEstudiantes << s;
+        archivoEstudiantes << endl; 
+      });
+      archivoEstudiantes.close();
+      break;
+    case 7:
+      cout << "Leyendo de archivo..." << endl;
+      ifstream archivoEstudiantes("personas.txt");
+      if (!archivoEstudiantes)
+      {
+        cout << "Error al abrir el archivo" << endl;
+        return 1;
+      }
+      while (archivoEstudiantes >> st)
+      {
+        push(head, st);
+      }
+      archivoEstudiantes.close();
+      break;
+
+
+
+
+
+
+
+
+
+
     case 8:
       return 0;
       break;
