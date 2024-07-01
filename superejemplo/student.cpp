@@ -1,7 +1,6 @@
 #include "student.h"
 #include "utils.h"
 #include <fstream>
-#include <iostream>
 
 using namespace std;
 
@@ -54,11 +53,11 @@ istream &operator>>(istream &is, Student &s)
 
   for (auto part : parts)
   {
-    if (part.find("name") == 0)
+    if (part.starts_with("name"))
     {
       s.name = parseName(part);
     }
-    else if (part.find("subjects") == 0)
+    else if (part.starts_with("subjects"))
     {
       s.subjects = parseSubjects(part);
     }
@@ -72,7 +71,7 @@ istream &operator>>(istream &is, Student &s)
 // "name Alberto Valero" --> "Alberto Valero"
 string parseName(string const &n)
 {
-  if (n.find("name") != 0)
+  if (!n.starts_with("name"))
   {
     return "";
   }
