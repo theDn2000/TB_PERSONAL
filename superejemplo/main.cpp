@@ -13,9 +13,10 @@ int main()
   forEach(head, [](Student const &st)
           { cout << st << endl; });
   */
-  cout << "=-=-=-=-=-=-=-=-=-=-=-=-" << endl;
-  cout << "Bienvendio a la base de datos de estudiantes" << endl;
-  cout << "1. Agregar estudiante" << endl;
+  cout << "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl;
+  cout << "|Bienvendio a la base de datos de estudiantes|" << endl;
+  cout << "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-" << endl;
+  cout << "|1. Agregar estudiante                       |" << endl;
 
 
 
