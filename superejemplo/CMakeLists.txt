@@ -3,6 +3,6 @@ project(lista)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(SOURCES main.cpp student.cpp node.cpp)
+set(SOURCES main.cpp student.cpp node.cpp utils.cpp)
 
 add_executable(lista ${SOURCES})
