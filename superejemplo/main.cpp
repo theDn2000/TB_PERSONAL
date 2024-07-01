@@ -5,10 +5,11 @@ int main()
 {
   Student st1{"1234", "Alberto", {"Progra I", "Progra 2", "EDA"}};
   Student st2{"4321", "Luisa", {"Progra I", "Progra 2", "EDA"}};
-  Student st2{"5555", "Alberto", {"Progra 3", "Aero", "SRF"}};
+  Student st3{"5555", "Alberto", {"Progra 3", "Aero", "SRF"}};
   PNode head = nullptr;
   push(head, st1);
   push(head, st2);
+  push(head, st3);
 
   /*
   forEach(head, [](Student const &st)
