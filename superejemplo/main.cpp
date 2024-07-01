@@ -85,5 +85,7 @@ int main()
       cout << "Opción no válida" << endl;
       break;
     }
+    // Wait 1 second
+    this_thread::sleep_for(chrono::seconds(1));
   }
 }
