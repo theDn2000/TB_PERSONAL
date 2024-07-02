@@ -10,7 +10,7 @@ P_Node push(P_Node &head, int data)
     if (data < head->data)
     {
         head->left = push(head->left, data);
-        return head
+        return head;
     }
     else
     {
