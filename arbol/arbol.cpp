@@ -49,12 +49,12 @@ P_Node push_by_id(P_Node &head, shared_ptr<Data> &data)
     }
     if (data->id < head->data->id)
     {
-        head->left = push_by_value(head->left, data);
+        head->left = push_by_id(head->left, data);
         return head;
     }
     else
     {
-        head->right = push_by_value(head->right, data);
+        head->right = push_by_id(head->right, data);
         return head;
     }
 }
@@ -82,7 +82,7 @@ P_Node find(P_Node &head, int data)
 }
 */
 
-P_Node find_by_value(P_Node &head, shared_ptr<Data> data)
+P_Node find_by_value(P_Node &head, shared_ptr<Data> &data)
 {
     if (!head)
     {
@@ -103,7 +103,7 @@ P_Node find_by_value(P_Node &head, shared_ptr<Data> data)
     
 }
 
-P_Node find_by_id(P_Node &head, shared_ptr<Data> data)
+P_Node find_by_id(P_Node &head, shared_ptr<Data> &data)
 {
     if (!head)
     {
