@@ -15,20 +15,23 @@ struct Data
 {
     int value;
     int id;
+    string name;
 };
 
 struct Node
 {
-    Data data;
+    shared_ptr<Data> data;
     shared_ptr<Node> left;
     shared_ptr<Node> right;
 };
 
 P_Node push(P_Node &head, int data);
 
-P_Node push(P_Node &head, Data data);
+P_Node push_by_value(P_Node &head, Data data);
+P_Node push_by_id(P_Node &head, Data data);
 
 
 P_Node find(P_Node &head, int data);
 
-P_Node find(P_Node &head, Data data);
+P_Node find_by_value(P_Node &head, Data data);
+P_Node find_by_id(P_Node &head, Data data);

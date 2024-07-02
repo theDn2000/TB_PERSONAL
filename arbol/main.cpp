@@ -8,21 +8,47 @@ int uuid()
 
 int main()
 {
+    // Crear arbol #1
     P_Node head = nullptr;
-    Data d1 = {10, uuid()};
-    Data d2 = {5, uuid()};
-    Data d3 = {11, uuid()};
-    Data d4 = {6, uuid()};
+    Data d1 = {10, uuid(), "Mireia"};
+    Data d2 = {5, uuid(), "Roberto"};
+    Data d3 = {11, uuid(), "Paula"};
+    Data d4 = {6, uuid(), "Pedro"};
 
-    push(head, d1);
-    push(head, d2);
-    push(head, d3);
-    push(head, d4);
+    push_by_value(head, d1);
+    push_by_value(head, d2);
+    push_by_value(head, d3);
+    push_by_value(head, d4);
 
-    cout << "Searching for: " << d2.id << endl;
-    P_Node found = find(head, d2);
-    // Print the value of the found data struct
-    cout << found->data.value << endl;
+    // Crear arbol #2
+    P_Node head2 = nullptr;
+    push_by_id(head2, d1);
+    push_by_id(head2, d2);
+    push_by_id(head2, d3);
+    push_by_id(head2, d4);
+
+
+
+    cout << "Searching for id: " << d2.id << endl;
+    P_Node found = find_by_id(head, d2);
+    // Print the name of the found data struct
+    cout << found->data->name<< endl;
+
+    cout << endl;
+    cout << "Searching for value: " << d2.value << endl;
+    P_Node found2 = find_by_value(head, d2);
+    // Print the name of the found data struct
+    cout << found2->data->name<< endl;
+    cout << endl;
+
+    cout << "Changing name of found data struct" << endl;
+    found2->data->name = "Robertito";
+    cout << endl;
+
+    cout << "Searching for id: " << d2.id << endl;
+    P_Node found3 = find_by_id(head, d2);
+    // Print the name of the found data struct
+    cout << found3->data->name<< endl;
 
     /*
     push(head, 10);
