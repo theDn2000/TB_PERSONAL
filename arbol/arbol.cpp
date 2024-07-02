@@ -1,5 +1,6 @@
 #include "arbol.h"
 
+/*
 P_Node push(P_Node &head, int data)
 {
     if (!head)
@@ -18,6 +19,7 @@ P_Node push(P_Node &head, int data)
         return head;
     }
 }
+*/
 
 P_Node push(P_Node &head, Data data)
 {
@@ -38,7 +40,7 @@ P_Node push(P_Node &head, Data data)
     }
 }
 
-
+/*
 P_Node find(P_Node &head, int data)
 {
     if (!head)
@@ -59,6 +61,7 @@ P_Node find(P_Node &head, int data)
     }
     
 }
+*/
 
 P_Node find(P_Node &head, Data data)
 {
