@@ -52,32 +52,27 @@ int main()
     push<int>(head2, d3_ptr, [](shared_ptr<Data> d) { return d->value; });
     push<int>(head2, d4_ptr, [](shared_ptr<Data> d) { return d->value; });
 
-
-    push<Aux>(head, d1_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
-    push<Aux>(head, d2_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
-    push<Aux>(head, d3_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
-    push<Aux>(head, d4_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
+    P_Node head3 = nullptr;
+    push<Aux>(head3, d1_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
+    push<Aux>(head3, d2_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
+    push<Aux>(head3, d3_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
+    push<Aux>(head3, d4_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
 
 
 
     cout << "Searching for id: " << d2.id << endl;
-    P_Node found = find<int>(head, d2_ptr, [](shared_ptr<Data> d) { return d->id; });
+    P_Node found = find<Aux>(head3, d2_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
     // Print the name of the found data struct
     cout << found->data->name<< endl;
 
     cout << endl;
-    cout << "Searching for value: " << d2.value << endl;
-    P_Node found2 = find<int>(head, d2_ptr, [](shared_ptr<Data> d) { return d->value; });
-    // Print the name of the found data struct
-    cout << found2->data->name<< endl;
-    cout << endl;
 
     cout << "Changing name of found data struct" << endl;
-    found2->data->name = "Robertito";
+    found->data->name = "Robertito";
     cout << endl;
 
     cout << "Searching for id: " << d2.id << endl;
-    P_Node found3 = find<int>(head, d2_ptr, [](shared_ptr<Data> d) { return d->id; });
+    P_Node found3 = find<Aux>(head3, d2_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
     // Print the name of the found data struct
     cout << found3->data->name<< endl;
 
