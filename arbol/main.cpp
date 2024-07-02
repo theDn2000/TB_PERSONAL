@@ -1,5 +1,7 @@
 #include "arbol.h"
 
+
+
 int main()
 {
     P_Node head = nullptr;
