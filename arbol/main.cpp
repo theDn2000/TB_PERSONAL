@@ -1,34 +1,20 @@
-#include <iostream>
-#include <memory>
+#include "arbol.h"
 
-using namespace std;
-
-struct Node;
-
-using P_Node = shared_ptr<Node>;
-
-struct Node
+int main()
 {
-    int data;
-    shared_ptr<Node> left;
-    shared_ptr<Node> right;
-};
+    P_Node head = nullptr;
+    push(head, 10);
+    push(head, 5);
+    push(head, 11);
+    push(head, 6);
+    return 0;
 
-P_Node push(P_Node &head, int data)
-{
-    if (!head)
-    {
-        head = make_shared<Node>(Node{data, nullptr, nullptr}); // Esto ocurre en cada hijo que no tiene hijos (se crea un nuevo nodo con el valor data)
-        return head;
-    }
-    if (data < head->data)
-    {
-        head->left = push(head->left, data);
-        return head
-    }
-    else
-    {
-        head->right = push(head->right, data);
-        return head;
-    }
+    /*
+    head->data = 10;
+    head->left->data = 5;
+    head->right->data = 11;
+    head->left->right->data = 6;
+    head->right->left = nullptr;
+    head->right->right = nullptr;
+    */
 }
