@@ -6,6 +6,27 @@ int uuid()
     return rand() % 10000;
 }
 
+struct Aux
+{
+    int value;
+    string name;
+};
+
+bool operator==(Aux const &a1, Aux const &a2)
+{
+    return (a1.value == a2.value && a1.name == a2.name);
+}
+
+bool operator<(Aux const &a1, Aux const &a2)
+{
+    return a1.value < a2.value;
+}
+
+bool operator>(Aux const &a1, Aux const &a2)
+{
+    return a1.value > a2.value;
+}
+
 int main()
 {
     // Crear arbol #1
@@ -30,6 +51,12 @@ int main()
     push<int>(head2, d2_ptr, [](shared_ptr<Data> d) { return d->value; });
     push<int>(head2, d3_ptr, [](shared_ptr<Data> d) { return d->value; });
     push<int>(head2, d4_ptr, [](shared_ptr<Data> d) { return d->value; });
+
+
+    push<Aux>(head, d1_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
+    push<Aux>(head, d2_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
+    push<Aux>(head, d3_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
+    push<Aux>(head, d4_ptr, [](shared_ptr<Data> d) { return Aux{d->value, d->name}; });
 
 
 
