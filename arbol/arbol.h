@@ -31,7 +31,7 @@ P_Node push_by_value(P_Node &head, shared_ptr<Data> &data);
 P_Node push_by_id(P_Node &head, shared_ptr<Data> &data);
 
 
-P_Node find(P_Node &head, int data);
+//P_Node find(P_Node &head, int data);
 
 P_Node find_by_value(P_Node &head, shared_ptr<Data> &data);
-P_Node find_by_id(P_Node &head, shared_ptr<Data> &data);
+P_Node find(P_Node &head, shared_ptr<Data> &data, function<int(shared_ptr<Data>)> f);
