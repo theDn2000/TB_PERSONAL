@@ -103,23 +103,23 @@ P_Node find_by_value(P_Node &head, shared_ptr<Data> &data)
     
 }
 
-P_Node find_by_id(P_Node &head, shared_ptr<Data> &data)
+P_Node find(P_Node &head, shared_ptr<Data> &data, function<int(shared_ptr<Data>)> f)
 {
     if (!head)
     {
         return nullptr;
     }
-    if ((head->data->id) == data->id) // Si soy yo, devuelvo mi cabecera
+    if (f(head->data) == f(data)) // Si soy yo, devuelvo mi cabecera
     {
         return head;
     }
-    if ((head->data->id) > data->id) // Si soy mayor, busco a la izquierda
+    if (f(head->data) > f(data)) // Si soy mayor, busco a la izquierda
     {
-        return find_by_id(head->left, data);
+        return find(head->left, data, f);
     }
     else // Si soy menor, busco a la derecha
     {
-        return find_by_id(head->right, data);
+        return find(head->right, data, f);
     }
     
 }
