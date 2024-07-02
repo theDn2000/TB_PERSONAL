@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <memory>
+#include <functional>
+#include <random>
 
 using namespace std;
 
@@ -17,3 +19,5 @@ struct Node
 };
 
 P_Node push(P_Node &head, int data);
+
+P_Node find(P_Node &head, int data);

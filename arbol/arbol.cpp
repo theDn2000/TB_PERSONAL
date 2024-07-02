@@ -18,3 +18,24 @@ P_Node push(P_Node &head, int data)
         return head;
     }
 }
+
+P_Node find(P_Node &head, int data)
+{
+    if (!head)
+    {
+        return nullptr;
+    }
+    if ((head->data) == data) // Si soy yo, devuelvo mi cabecera
+    {
+        return head;
+    }
+    if ((head->data) > data) // Si soy mayor, busco a la izquierda
+    {
+        return find(head->left, data);
+    }
+    else // Si soy menor, busco a la derecha
+    {
+        return find(head->right, data);
+    }
+    
+}
