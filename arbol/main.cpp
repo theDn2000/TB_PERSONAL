@@ -19,28 +19,28 @@ int main()
     Data d4 = {6, uuid(), "Pedro"};
     shared_ptr<Data> d4_ptr = make_shared<Data>(d4);
 
-    push_by_value(head, d1_ptr);
-    push_by_value(head, d2_ptr);
-    push_by_value(head, d3_ptr);
-    push_by_value(head, d4_ptr);
+    push<int>(head, d1_ptr, [](shared_ptr<Data> d) { return d->id; });
+    push<int>(head, d2_ptr, [](shared_ptr<Data> d) { return d->id; });
+    push<int>(head, d3_ptr, [](shared_ptr<Data> d) { return d->id; });
+    push<int>(head, d4_ptr, [](shared_ptr<Data> d) { return d->id; });
 
     // Crear arbol #2
     P_Node head2 = nullptr;
-    push_by_id(head2, d1_ptr);
-    push_by_id(head2, d2_ptr);
-    push_by_id(head2, d3_ptr);
-    push_by_id(head2, d4_ptr);
+    push<int>(head2, d1_ptr, [](shared_ptr<Data> d) { return d->value; });
+    push<int>(head2, d2_ptr, [](shared_ptr<Data> d) { return d->value; });
+    push<int>(head2, d3_ptr, [](shared_ptr<Data> d) { return d->value; });
+    push<int>(head2, d4_ptr, [](shared_ptr<Data> d) { return d->value; });
 
 
 
     cout << "Searching for id: " << d2.id << endl;
-    P_Node found = find(head, d2_ptr, [](shared_ptr<Data> d) { return d->id; });
+    P_Node found = find<int>(head, d2_ptr, [](shared_ptr<Data> d) { return d->id; });
     // Print the name of the found data struct
     cout << found->data->name<< endl;
 
     cout << endl;
     cout << "Searching for value: " << d2.value << endl;
-    P_Node found2 = find(head, d2_ptr, [](shared_ptr<Data> d) { return d->value; });
+    P_Node found2 = find<int>(head, d2_ptr, [](shared_ptr<Data> d) { return d->value; });
     // Print the name of the found data struct
     cout << found2->data->name<< endl;
     cout << endl;
@@ -50,7 +50,7 @@ int main()
     cout << endl;
 
     cout << "Searching for id: " << d2.id << endl;
-    P_Node found3 = find(head, d2_ptr, [](shared_ptr<Data> d) { return d->id; });
+    P_Node found3 = find<int>(head, d2_ptr, [](shared_ptr<Data> d) { return d->id; });
     // Print the name of the found data struct
     cout << found3->data->name<< endl;
 
