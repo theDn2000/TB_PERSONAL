@@ -50,6 +50,31 @@ void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional =
 }
 
 template<typename T>
+void push_arc(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, int const &cost, bool bidireccional = false)
+{
+    if (n1 == n2)
+    {
+        return;
+    }
+    for (auto arc : n1->neighbors)
+    {
+        if (arc->node == n2)
+        {
+            return;
+        }
+    }
+    if (bidireccional)
+    {
+        n1->neighbors.push_back(Arc<T>{cost, n2});
+        n2->neighbors.push_back(Arc<T>{cost, n1});
+    }
+    else
+    {
+        n1->neighbors.push_back(Arc<T>{cost, n2});
+    }
+}
+
+template<typename T>
 void push_all(shared_ptr<Node<T>> &n1, vector<shared_ptr<Node<T>>> const &nodes)
 {
     for (auto n : nodes)

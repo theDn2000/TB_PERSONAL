@@ -40,9 +40,9 @@ int main (void)
     auto n4 = make_shared<Node<int>>(Node<int>{23});
 
     // Construir el grafo con la función push
-    push<int>(n1, n2, true);
-    push<int>(n1, n3, false);
-    push<int>(n3, n4, false);
+    push_arc<int>(n1, n2, 2, true);
+    push_arc<int>(n1, n3, 1, false);
+    push_arc<int>(n3, n4, 3, false);
 
     dijstra<int>(n1, n4);
 
