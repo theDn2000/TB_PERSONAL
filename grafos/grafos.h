@@ -95,7 +95,7 @@ vector<Arc<T>> dijstra(shared_ptr<Node<T>> &start, shared_ptr<Node<T>> &end)
     {
         for (auto elem : start->neighbors)
         {
-            unvisited.insert(elem->node);
+            unvisited.insert(elem.node);
         }
     }
 
