@@ -23,7 +23,7 @@ struct Arc
     int weight;
     shared_ptr<Node<G>> node;
 };
-
+/*
 template<typename T>
 void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional = false)
 {
@@ -48,6 +48,7 @@ void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional =
         n1->neighbors.push_back(n2);
     }
 }
+*/
 
 template<typename T>
 void push_arc(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, int const &cost, bool bidireccional = false)
