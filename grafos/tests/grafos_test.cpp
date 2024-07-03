@@ -30,7 +30,7 @@ TEST (Grafos, push_all_grafo)
 
     // Construir el grafo
     push_all<int>(n1, {n1, n2, n3});
-    push_all<int>(n3, {n1, n2, n4});
+    push_all<int>(n1, {n1, n2, n4});
 
     EXPECT_EQ(n1->neighbors.size(), 3);
     EXPECT_EQ(n1->neighbors[1]->data, 34);
