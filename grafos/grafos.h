@@ -73,7 +73,7 @@ vector<Arc<T>> dijstra(shared_ptr<Node<T>> &start, shared_ptr<Node<T>> &end)
         }
     }
 
-    for auto (element : unvisited)
+    for (auto element : unvisited)
     {
         cout << element->data << endl;
     }
