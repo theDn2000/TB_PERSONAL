@@ -40,7 +40,7 @@ void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional =
 }
 
 template<typename T>
-void push_all(shared_ptr<Node<T>> &n1, vector<shared_ptr<Node<T>>> &nodes)
+void push_all(shared_ptr<Node<T>> &n1, vector<shared_ptr<Node<T>>> const &nodes)
 {
     for (auto n : nodes)
     {
