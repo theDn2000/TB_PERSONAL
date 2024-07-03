@@ -1,5 +1,6 @@
 #include <vector>
 #include <memory>
+#include <set>
 #include "grafos.h"
 
 using namespace std;
@@ -8,7 +9,7 @@ template<typename T>
 struct Node
 {
     T data;
-    vector<shared_ptr<Node<T>>> neighbors;
+    set<shared_ptr<Node<T>>> neighbors;
 };
 
 /*
@@ -45,16 +46,12 @@ int main (void)
     auto n3 = make_shared<Node<int>>(Node<int>{34});
     auto n4 = make_shared<Node<int>>(Node<int>{23});
 
-    // Construir el grafo
-    n1->neighbors.push_back(n2);
-    n2->neighbors.push_back(n1); // Bidireccional
-    n1->neighbors.push_back(n3);
-    n3->neighbors.push_back(n4);
-
     // Construir el grafo con la función push
     push<int>(n1, n2, true);
     push<int>(n1, n3, false);
     push<int>(n3, n4, false);
+
+    dijstra<int>(n1, n4);
 
     return 0;
 }

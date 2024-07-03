@@ -1,17 +1,27 @@
 #pragma once
 
+#include <set>
 #include <iostream>
 #include <memory>
 #include <functional>
 #include <random>
 
 using namespace std;
+template<typename G>
+struct Arc;
 
 template<typename T>
 struct Node
 {
     T data;
-    vector<shared_ptr<Node<T>>> neighbors;
+    vector<shared_ptr<Arc<T>>> neighbors;
+};
+
+template<typename G>
+struct Arc
+{
+    int weight;
+    shared_ptr<Node<G>> node;
 };
 
 template<typename T>
@@ -46,4 +56,27 @@ void push_all(shared_ptr<Node<T>> &n1, vector<shared_ptr<Node<T>>> const &nodes)
     {
         push<T>(n1, n);
     }
+}
+
+template<typename T>
+vector<Arc<T>> dijstra(shared_ptr<Node<T>> &start, shared_ptr<Node<T>> &end)
+{
+    vector<Arc<T>> result;
+    set<shared_ptr<Node<T>>> visited;
+    set<shared_ptr<Node<T>>> unvisited;
+    unvisited.insert(start);
+    for (auto element : unvisited)
+    {
+        for (auto elem : start->neighbors)
+        {
+            unvisited.insert(elem->node);
+        }
+    }
+
+    for auto (element : unvisited)
+    {
+        cout << element->data << endl;
+    }
+    result = {Arc<T>{1, start}};
+    return result;
 }
