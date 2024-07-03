@@ -14,7 +14,9 @@ template<typename T>
 struct Node
 {
     T data;
+    int cost = INT_MAX;
     vector<Arc<T>> neighbors;
+    Node<T> prev = nullptr;
 };
 
 template<typename G>
@@ -85,24 +87,33 @@ void push_all(shared_ptr<Node<T>> &n1, vector<shared_ptr<Node<T>>> const &nodes)
 }
 
 template<typename T>
-vector<Arc<T>> dijstra(shared_ptr<Node<T>> &start, shared_ptr<Node<T>> &end)
+void dijstra(shared_ptr<Node<T>> &start, vector<shared_ptr<Node<T>>> &nodes)
 {
-    vector<Arc<T>> result;
     set<shared_ptr<Node<T>>> visited;
-    set<shared_ptr<Node<T>>> unvisited;
-    unvisited.insert(start);
-    for (auto element : unvisited)
-    {
-        for (auto elem : start->neighbors)
-        {
-            unvisited.insert(elem.node);
-        }
-    }
+    set<shared_ptr<Node<T>>> unvisited = nodes;
+    start->cost = 0;
 
-    for (auto element : unvisited)
+    while(unvisited.size() > 0)
     {
-        cout << element->data << endl;
+        shared_ptr<Node<T>> current; = *unvisited.begin();
+        for (auto elem : unvisited)
+        {
+            if (elem->cost < current->cost)
+            {
+                current = elem;
+            }
+        }
+
+        for (auto neighbor : current->neighbors)
+        {
+            auto new_cost = current->cost + neighbor.weight;
+            if (new_cost < neighbor.node->cost)
+            {
+                neighbor.node->cost = new_cost;
+                neighbor.node->prev = current;
+            }
+        }
+
+        unvisited.erase(find(unvisited.begin(), unvisited.end(), current));
     }
-    result = {Arc<T>{1, start}};
-    return result;
 }
