@@ -36,5 +36,11 @@ int main (void)
     n2->neighbors.push_back(n1); // Bidireccional
     n1->neighbors.push_back(n3);
     n3->neighbors.push_back(n4);
+
+    // Construir el grafo con la función push
+    push<int>(n1, n2, true);
+    push<int>(n1, n3, false);
+    push<int>(n3, n4, false);
+
     return 0;
 }
