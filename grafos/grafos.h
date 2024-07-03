@@ -14,7 +14,7 @@ template<typename T>
 struct Node
 {
     T data;
-    vector<shared_ptr<Arc<T>>> neighbors;
+    vector<Arc<T>> neighbors;
 };
 
 template<typename G>
