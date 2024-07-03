@@ -1,5 +1,6 @@
 #include <vector>
 #include <memory>
+#include "grafos.h"
 
 using namespace std;
 
@@ -10,9 +11,21 @@ struct Node
     vector<shared_ptr<Node<T>>> neighbors;
 };
 
+/*
 template<typename T>
 void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional = false)
 {
+    if (n1 == n2)
+    {
+        return;
+    }
+    for (auto arc : n1->neighbors)
+    {
+        if (arc == n2)
+        {
+            return;
+        }
+    }
     if (bidireccional)
     {
         n1->neighbors.push_back(n2);
@@ -23,6 +36,7 @@ void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional =
         n1->neighbors.push_back(n2);
     }
 }
+*/
 
 int main (void)
 {
