@@ -59,7 +59,7 @@ void push_arc(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, int const &cost,
     }
     for (auto arc : n1->neighbors)
     {
-        if (arc->node == n2)
+        if (arc.node == n2)
         {
             return;
         }
