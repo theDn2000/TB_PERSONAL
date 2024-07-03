@@ -5,13 +5,6 @@
 
 using namespace std;
 
-template<typename T>
-struct Node
-{
-    T data;
-    set<shared_ptr<Node<T>>> neighbors;
-};
-
 /*
 template<typename T>
 void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional = false)
