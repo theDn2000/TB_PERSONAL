@@ -39,10 +39,11 @@ void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional =
     }
 }
 
-void push_all(shared_ptr<Node<int>> &n1, vector<shared_ptr<Node<int>>> &nodes)
+template<typename T>
+void push_all(shared_ptr<Node<T>> &n1, vector<shared_ptr<Node<T>>> &nodes)
 {
     for (auto n : nodes)
     {
-        push<int>(n1, n);
+        push<T>(n1, n);
     }
 }
