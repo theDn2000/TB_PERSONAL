@@ -41,6 +41,7 @@ int main (void)
 
     // Construir el grafo con la función push
     push_arc<int>(n1, n2, 2, true);
+    push_arc<int>(n2, n4, 1, true);
     push_arc<int>(n1, n3, 1, false);
     push_arc<int>(n3, n4, 3, false);
 
