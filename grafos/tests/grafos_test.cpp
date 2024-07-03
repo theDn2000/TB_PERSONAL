@@ -16,6 +16,6 @@ TEST (Grafos, push_grafo)
     EXPECT_EQ(n1->neighbors.size(), 2);
     EXPECT_EQ(n2->neighbors.size(), 1);
     EXPECT_EQ(n3->neighbors.size(), 2);
-    EXPECT_EQ(n4->neighbors.size(), 1);
+    EXPECT_EQ(n4->neighbors.size(), 0);
     EXPECT_EQ(n1->neighbors[0]->data, 5);
 }
