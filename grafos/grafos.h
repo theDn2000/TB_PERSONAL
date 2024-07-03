@@ -38,3 +38,11 @@ void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional =
         n1->neighbors.push_back(n2);
     }
 }
+
+void push_all(shared_ptr<Node<int>> &n1, vector<shared_ptr<Node<int>>> &nodes)
+{
+    for (auto n : nodes)
+    {
+        push<int>(n1, n);
+    }
+}
