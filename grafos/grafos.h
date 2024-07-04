@@ -7,10 +7,11 @@
 #include <random>
 
 using namespace std;
+// DIJKSTRA
+/*
 template<typename G>
 struct Arc;
 
-// DIJKSTRA
 template<typename T>
 struct Node
 {
@@ -26,15 +27,16 @@ struct Arc
     int weight;
     shared_ptr<Node<G>> node;
 };
+*/
 
+
+// ESTRELLA
 struct Coordinates
 {
     int x;
     int y;
-};	
+};
 
-
-// ESTRELLA
 struct Node_E;
 
 struct Edge
@@ -50,6 +52,11 @@ struct Node_E
     float cost = INT_MAX;
     shared_ptr<Node_E> prev = nullptr;
 };
+
+bool operator<(Edge const &e1, Edge const &e2)
+{
+    return e1.distance < e2.distance;
+}
 /*
 template<typename T>
 void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional = false)
