@@ -51,6 +51,7 @@ struct Node_E
     set<Edge> neighbors;
     float cost = INT_MAX;
     shared_ptr<Node_E> prev = nullptr;
+    float estimation = INT_MAX;
 };
 
 

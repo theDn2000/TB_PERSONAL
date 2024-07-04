@@ -51,3 +51,39 @@ void dijkstra(shared_ptr<Node_E> &start, const vector<shared_ptr<Node_E>> &nodes
         }
     }
 }
+
+bool a_star(shared_ptr<Node_E> &start, shared_ptr<Node_E> &end, const vector<shared_ptr<Node_E>> &nodes)
+{
+    start->cost = 0;
+    auto NOT_VISITED = nodes;
+
+    // Estimate the cost from start to end for each node
+    for (auto node : nodes)
+    {
+        node->estimation = *node - *end;
+    }
+    auto current = start;
+    while (current != end && NOT_VISITED.size() > 0)
+    {
+        for (auto node : NOT_VISITED)
+        {
+            if (node->cost + node->estimation < current->cost + current->estimation)
+            {
+                current = node;
+            }
+        }
+
+        // Remove current from NOT_VISITED
+        NOT_VISITED.erase(find(NOT_VISITED.begin(), NOT_VISITED.end(), current));
+
+        for (auto edge : current->neighbors)
+        {
+            if (edge.node->cost > current->cost + edge.distance)
+            {
+                edge.node->cost = current->cost + edge.distance;
+                edge.node->prev = current;
+            }
+        }
+    }
+    return current == end; // Se si ha llegado al final
+}
