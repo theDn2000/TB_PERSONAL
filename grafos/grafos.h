@@ -84,6 +84,7 @@ void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional =
 }
 */
 // DIJKSTRA
+/*
 template<typename T>
 void push_arc(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, int const &cost, bool bidireccional = false)
 {
@@ -149,7 +150,7 @@ void dijstra(shared_ptr<Node<T>> &start, vector<shared_ptr<Node<T>>> &nodes)
         unvisited.erase(find(unvisited.begin(), unvisited.end(), current));
     }
 }
-
+*/
 
 
 
