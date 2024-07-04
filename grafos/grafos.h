@@ -155,44 +155,6 @@ void dijstra(shared_ptr<Node<T>> &start, vector<shared_ptr<Node<T>>> &nodes)
 // ESTRELLA
 float operator-(Node_E const &n1, Node_E const &n2);
 
-void push(shared_ptr<Node_E> &n1, shared_ptr<Node_E> &n2, bool bidireccional = false)
-{
-    auto edge = Edge{n2, *n2 - *n1}; // Camino entre n1 y n2, con su distancia
-    n1->neighbors.insert(edge);
+void push(shared_ptr<Node_E> &n1, shared_ptr<Node_E> &n2, bool bidireccional = false);
 
-    if (bidireccional)
-    {
-        auto edge = Edge{n1, *n1 - *n2};
-        n2->neighbors.insert(edge);
-    }
-}
-
-void dijkstra(shared_ptr<Node_E> &start, const vector<shared_ptr<Node_E>> &nodes)
-{
-    start->cost = 0;
-    auto NOT_VISITED = nodes;
-
-    while (NOT_VISITED.size() > 0)
-    {
-        auto current = NOT_VISITED.at(0);
-        for (auto node : NOT_VISITED)
-        {
-            if (node->cost < current->cost)
-            {
-                current = node;
-                
-            }
-        }
-        // Remove current from NOT_VISITED
-        NOT_VISITED.erase(find(NOT_VISITED.begin(), NOT_VISITED.end(), current));
-
-        for (auto edge : current->neighbors)
-        {
-            if (edge.node->cost > current->cost + edge.distance)
-            {
-                edge.node->cost = current->cost + edge.distance;
-                edge.node->prev = current;
-            }
-        }
-    }
-}
+void dijkstra(shared_ptr<Node_E> &start, const vector<shared_ptr<Node_E>> &nodes);
