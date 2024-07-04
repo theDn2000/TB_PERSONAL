@@ -50,11 +50,11 @@ TEST (Dijkstra, dijkstra_costes)
     auto c5 = Coordinates{2, 3};
 
     // Create nodes
-    auto n1 = make_shared<Node_C>(Node_C{c1});
-    auto n2 = make_shared<Node_C>(Node_C{c2});
-    auto n3 = make_shared<Node_C>(Node_C{c3});
-    auto n4 = make_shared<Node_C>(Node_C{c4});
-    auto n5 = make_shared<Node_C>(Node_C{c5});
+    auto n1 = make_shared<Node_E>(Node_E{c1});
+    auto n2 = make_shared<Node_E>(Node_E{c2});
+    auto n3 = make_shared<Node_E>(Node_E{c3});
+    auto n4 = make_shared<Node_E>(Node_E{c4});
+    auto n5 = make_shared<Node_E>(Node_E{c5});
 
     // Create graph
     push(n1, n2, false);
@@ -64,7 +64,7 @@ TEST (Dijkstra, dijkstra_costes)
     push(n4, n5, false);
 
     // Dijkstra
-    dijstra(n1, {n1, n2, n3, n4, n5});
+    dijkstra(n1, {n1, n2, n3, n4, n5});
 
     // Check costs
     EXPECT_EQ(n1->cost, 0);
