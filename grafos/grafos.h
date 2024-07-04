@@ -173,7 +173,7 @@ void push(shared_ptr<Node_E> &n1, shared_ptr<Node_E> &n2, bool bidireccional = f
     }
 }
 
-void dijkstra(shared_ptr<Node_E> &start, vector<shared_ptr<Node_E>> &nodes)
+void dijkstra(shared_ptr<Node_E> &start, const vector<shared_ptr<Node_E>> &nodes)
 {
     start->cost = 0;
     auto NOT_VISITED = nodes;
