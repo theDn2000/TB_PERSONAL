@@ -53,10 +53,8 @@ struct Node_E
     shared_ptr<Node_E> prev = nullptr;
 };
 
-bool operator<(Edge const &e1, Edge const &e2)
-{
-    return e1.distance < e2.distance;
-};
+
+bool operator<(Edge const &e1, Edge const &e2);
 /*
 template<typename T>
 void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional = false)
