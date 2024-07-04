@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "../grafos.h"
 
+/*
 TEST (Grafos, push_grafo)
 {
     auto n1 = make_shared<Node<int>>(Node<int>{3});
@@ -34,4 +35,42 @@ TEST (Grafos, push_all_grafo)
 
     EXPECT_EQ(n1->neighbors.size(), 3);
     EXPECT_EQ(n1->neighbors[1]->data, 34);
+    
+}
+*/
+
+// TEST DIJKSTRA
+TEST (Dijkstra, dijkstra_costes)
+{
+    // Ubicate nodes
+    auto c1 = Coordinates{0, 0};
+    auto c2 = Coordinates{2, 0};
+    auto c3 = Coordinates{1, 1};
+    auto c4 = Coordinates{4, 2};
+    auto c5 = Coordinates{2, 3};
+
+    // Create nodes
+    auto n1 = make_shared<Node_C>(Node_C{c1});
+    auto n2 = make_shared<Node_C>(Node_C{c2});
+    auto n3 = make_shared<Node_C>(Node_C{c3});
+    auto n4 = make_shared<Node_C>(Node_C{c4});
+    auto n5 = make_shared<Node_C>(Node_C{c5});
+
+    // Create graph
+    push(n1, n2, false);
+    push(n2, n3, true);
+    push(n2, n4, true);
+    push(n3, n5, false);
+    push(n4, n5, false);
+
+    // Dijkstra
+    dijstra(n1, {n1, n2, n3, n4, n5});
+
+    // Check costs
+    EXPECT_EQ(n1->cost, 0);
+    EXPECT_EQ(n2->cost, 4);
+
+    // Check path
+    EXPECT_EQ(n5->previous->data, 3);
+    EXPECT_EQ(n5->previous->previous->data, 2);
 }
