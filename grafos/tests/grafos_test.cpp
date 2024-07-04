@@ -71,6 +71,6 @@ TEST (Dijkstra, dijkstra_costes)
     EXPECT_EQ(n2->cost, 4);
 
     // Check path
-    EXPECT_EQ(n5->previous->data, 3);
-    EXPECT_EQ(n5->previous->previous->data, 2);
+    EXPECT_EQ(n5->prev->data, 3);
+    EXPECT_EQ(n5->prev->prev->data, 2);
 }
