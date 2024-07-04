@@ -34,6 +34,8 @@ void push(shared_ptr<Node<T>> &n1, shared_ptr<Node<T>> &n2, bool bidireccional =
 
 int main (void)
 {
+    // DIJKSTRA
+    /*
     auto n1 = make_shared<Node<int>>(Node<int>{3});
     auto n2 = make_shared<Node<int>>(Node<int>{5});
     auto n3 = make_shared<Node<int>>(Node<int>{34});
@@ -46,6 +48,7 @@ int main (void)
     push_arc<int>(n3, n4, 3, false);
 
     dijstra<int>(n1, n4);
+    */
 
     return 0;
 }
