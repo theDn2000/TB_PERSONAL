@@ -16,12 +16,7 @@ class Complejo
     {
         return sqrt(real * real + imaginary * imaginary);
     }
-}
-
-Complejo suma(Complejo const &a, Complejo const &b)
-{
-    return Complejo(a.real + b.real, a.imaginary + b.imaginary);
-}
+};
 
 Complejo operator+(Complejo const &a, Complejo const &b)
 {
