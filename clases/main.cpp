@@ -34,7 +34,9 @@ class Profesor : public Person
         string professor_id;
     public:
         //Constructor
-        Profesor(string name, int age, vector<string> asignaturas) : Person(name, age, asignaturas) {}
+        Profesor(string name, int age, vector<string> asignaturas, string professor_id) : Person(name, age, asignaturas) {
+            this->professor_id = professor_id;
+        }
         // Metodos
         string get_id()
         {
