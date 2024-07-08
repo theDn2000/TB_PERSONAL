@@ -29,6 +29,8 @@ class Circle
 {
     private:
         int radius;
+        float area;
+        float perimeter;
     public:
         Circle(int radius)
         {
@@ -36,10 +38,12 @@ class Circle
         }
         float getArea()
         {
-            return 3.1416 * radius * radius;
+            this->area = 3.1416 * radius * radius;
+            return this->area;
         }
         float getPerimeter()
         {
+            this->perimeter = 2 * 3.1416 * radius;
             return 2 * 3.1416 * radius;
         }
         float print()
