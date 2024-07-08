@@ -38,7 +38,7 @@ class Profesor : public Person
         // Metodos
         string get_id()
         {
-            print "ID: " << professor_id << endl;
+            cout << "ID: " << professor_id << endl;
             return professor_id;
         }
 };
