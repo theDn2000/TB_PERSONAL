@@ -1,4 +1,95 @@
 #include <iostream>
+#include <cmath>
+
+using namespace std;
+
+class Complejo
+{
+  friend Complejo operator+(Complejo const &c1, Complejo const &c2);
+  friend ostream &operator<<(ostream &os, Complejo const &c);
+  friend istream &operator>>(istream &is, Complejo &c);
+
+public:
+  Complejo(float real, float im) : real{real}, im{im}
+  {
+  }
+
+  float getImaginario() const
+  {
+    return im;
+  }
+
+  float getReal() const
+  {
+    return real;
+  }
+
+  void setImaginario(float imaginario)
+  {
+    im = imaginario;
+  }
+
+  void setReal(float r)
+  {
+    real = r;
+  }
+
+  float getModule() const
+  {
+    return sqrt(real * real + im * im);
+  }
+
+private:
+  float real;
+  float im;
+};
+
+Complejo suma(Complejo const &c1, Complejo const &c2)
+{
+  return Complejo{c1.getReal() + c2.getReal(), c1.getImaginario() + c2.getImaginario()};
+}
+
+Complejo operator+(Complejo const &c1, Complejo const &c2)
+{
+  return Complejo{c1.real + c2.real, c1.im + c2.im};
+}
+
+ostream &operator<<(ostream &os, Complejo const &c)
+{
+  os << c.real << " + " << c.im << "i";
+  return os;
+}
+
+istream &operator>>(istream &is, Complejo &c)
+{
+  is >> c.real >> c.im;
+  return is;
+}
+
+int main()
+{
+  Complejo c1{1, 1};
+  Complejo c2{3, 2};
+
+  auto c3 = c1 + c2;
+
+  cout << "Introduce un número complejo, separados por un espacio -> [real] [imaginario]: ";
+    Complejo c4{0, 0};
+    cin >> c4;
+    cout << "El número complejo introducido es: " << c4 << endl;
+    cout << "El módulo del número complejo introducido es: " << c4.getModule() << endl;
+
+    cout << "Introduce otro número complejo, separados por un espacio -> [real] [imaginario]: ";
+    Complejo c5{0, 0};
+    cin >> c5;
+    cout << "El número complejo introducido es: " << c5 << endl;
+    cout << "El módulo del número complejo introducido es: " << c5.getModule() << endl;
+
+    cout << "La suma de los números complejos es: " << c4 + c5 << endl;
+}
+
+/*
+#include <iostream>
 #include <vector>
 #include <cmath>
 
@@ -90,7 +181,7 @@ int main()
 
     return 0;
 }
-
+*/
 /*
 class RegularPolygon
 {
