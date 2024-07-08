@@ -61,7 +61,7 @@ int main()
     Alumno pedro = Alumno("Pedro", 20, asignaturas);
 
     juan.getPerson();
-    pedro.getAlumno();
+    pedro.getPerson();
 
     return 0;
 }
