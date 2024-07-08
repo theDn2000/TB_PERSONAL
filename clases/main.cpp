@@ -62,7 +62,8 @@ int main()
 
     juan.getPerson();
     juan.get_id();
-    //pedro.getPerson();
+
+    pedro.getPerson();
 
     return 0;
 }
