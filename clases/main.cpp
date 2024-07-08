@@ -2,6 +2,87 @@
 
 using namespace std;
 
+class Person
+{
+    private:
+        string name;
+        int age;
+        vector<string> asignaturas;
+    public:
+        Person(string name, int age, vector<string> asignaturas)
+        {
+            this->name = name;
+            this->age = age;
+            this->asignaturas = asignaturas;
+        }
+        string getPerson()
+        {
+            cout << "Nombre: " << name << " Edad: " << age << " Asignaturas: ";
+            for (auto asignatura : asignaturas)
+            {
+                cout << asignatura << " ";
+            }
+            cout << endl;
+        }
+};
+
+// Herencia
+class Profesor : public Person
+{
+    public:
+        //Constructor
+        Profesor(string name, int age, vector<string> asignaturas) : Person(name, age, asignaturas) {}
+        // Methods
+        string getProfesor()
+        {
+            cout << "Nombre: " << name << " Edad: " << age << " Asignaturas: ";
+            for (auto asignatura : asignaturas)
+            {
+                cout << asignatura << " ";
+            }
+            cout << endl;
+        } 
+};
+
+class Alumno : public Person
+{
+    public:
+        //Constructor
+        Alumno(string name, int age, vector<string> asignaturas) : Person(name, age, asignaturas) {}
+        // Methods
+        string getAlumno()
+        {
+            cout << "Nombre: " << name << " Edad: " << age << " Asignaturas: ";
+            for (auto asignatura : asignaturas)
+            {
+                cout << asignatura << " ";
+            }
+            cout << endl;
+        }
+};
+
+int main()
+{
+    vector<string> asignaturas = {"Matematicas", "Fisica", "Quimica"};
+    vector<string> asignaturas2 = {"Historia"};
+
+    Profesor juan = Profesor("Juan", 45, asignaturas2);
+    Alumno pedro = Alumno("Pedro", 20, asignaturas);
+
+    juan.getProfesor();
+    pedro.getAlumno();
+
+    return 0;
+}
+
+/*
+class RegularPolygon
+{
+    protected:
+        int side;
+        int sidenumber;
+}
+
 class Square
 {
     private:
@@ -73,7 +154,7 @@ class Triangle // Equilatero
         }
         float getArea()
         {
-            return (side * side) / 2;
+            return side*sqrt(3)/2;
         }
         float getPerimeter()
         {
@@ -82,6 +163,33 @@ class Triangle // Equilatero
         float print()
         {
             cout << "Soy un triangulo de lado " << side << endl;
+        }
+};
+
+class Pentagon : public RegularPolygon
+{
+    public:
+        Pentagon (int side) : RegularPolygon(side) {}
+}
+{
+    private:
+        int side;
+    public:
+        Pentagon(int side)
+        {
+            this->side = side;
+        }
+        float getArea()
+        {
+            return (side * side) / 2;
+        }
+        float getPerimeter()
+        {
+            return 5 * side;
+        }
+        float print()
+        {
+            cout << "Soy un pentagono de lado " << side << endl;
         }
 };
 
@@ -105,3 +213,4 @@ int main()
 
     return 0;
 }
+*/
