@@ -39,7 +39,7 @@ class Circle
                 cout << "El radio no puede ser negativo" << endl;
                 return;
             }
-            else:
+            else
             {
                 this->radius = radius;
             }
