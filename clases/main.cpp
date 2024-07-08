@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
 class Complejo
 {
     friend Complejo operator+(Complejo const &a, Complejo const &b);
+    //friend...
 
     private:
         float real;
