@@ -3,6 +3,31 @@
 
 using namespace std;
 
+class Complejo
+{
+    friend: Complejo operator+(Complejo const &a, Complejo const &b);
+    private:
+        float real;
+        float imaginary;
+    public:
+    Complejo(float real, float imaginary) : real{real}, imaginary{imaginary} {}
+
+    float getModule() const
+    {
+        return sqrt(real * real + imaginary * imaginary);
+    }
+}
+
+Complejo suma(Complejo const &a, Complejo const &b)
+{
+    return Complejo(a.real + b.real, a.imaginary + b.imaginary);
+}
+
+Complejo operator+(Complejo const &a, Complejo const &b)
+{
+    return Complejo(a.real + b.real, a.imaginary + b.imaginary);
+}
+
 class Person
 {
     private:
