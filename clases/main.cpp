@@ -30,16 +30,24 @@ class Person
 // Herencia
 class Profesor : public Person
 {
+    private:
+        string professor_id;
     public:
         //Constructor
         Profesor(string name, int age, vector<string> asignaturas) : Person(name, age, asignaturas) {}
+        // Metodos
+        string get_id()
+        {
+            print "ID: " << professor_id << endl;
+            return professor_id;
+        }
 };
 
 class Alumno : public Person
 {
     public:
         //Constructor
-        Alumno(string name, int age, vector<string> asignaturas) : Person(name, age, asignaturas) {}
+        Alumno(string name, int age, vector<string> asignaturas) : Person(name, age, asignaturas) {}    
 };
 
 int main()
