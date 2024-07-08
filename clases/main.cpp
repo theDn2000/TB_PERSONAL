@@ -61,7 +61,8 @@ int main()
     Alumno pedro = Alumno("Pedro", 20, asignaturas);
 
     juan.getPerson();
-    pedro.getPerson();
+    juan.get_id();
+    //pedro.getPerson();
 
     return 0;
 }
