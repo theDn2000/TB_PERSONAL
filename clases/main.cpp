@@ -5,7 +5,8 @@ using namespace std;
 
 class Complejo
 {
-    friend: Complejo operator+(Complejo const &a, Complejo const &b);
+    friend Complejo operator+(Complejo const &a, Complejo const &b);
+
     private:
         float real;
         float imaginary;
