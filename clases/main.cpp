@@ -34,7 +34,16 @@ class Circle
     public:
         Circle(int radius)
         {
-            this->radius = radius;
+            if (radius < 0)
+            {
+                cout << "El radio no puede ser negativo" << endl;
+                return;
+            }
+            else:
+            {
+                this->radius = radius;
+            }
+            
         }
         float getArea()
         {
@@ -78,7 +87,7 @@ class Triangle // Equilatero
 int main()
 {
     Square square = Square(5);
-    Circle circle = Circle(5);
+    Circle circle = Circle(-5);
     Triangle triangle = Triangle(5);
 
     square.print();
