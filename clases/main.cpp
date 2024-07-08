@@ -18,7 +18,7 @@ class Person
         }
         string getPerson()
         {
-            cout << "Nombre: " << this->name << " Edad: " << this->age << " Asignaturas: ";
+            cout << "Nombre: " << name << " Edad: " << age << " Asignaturas: ";
             for (auto asignatura : asignaturas)
             {
                 cout << asignatura << " ";
@@ -40,16 +40,6 @@ class Alumno : public Person
     public:
         //Constructor
         Alumno(string name, int age, vector<string> asignaturas) : Person(name, age, asignaturas) {}
-        // Methods
-        string getAlumno()
-        {
-            cout << "Nombre: " << name << " Edad: " << age << " Asignaturas: ";
-            for (auto asignatura : asignaturas)
-            {
-                cout << asignatura << " ";
-            }
-            cout << endl;
-        }
 };
 
 int main()
