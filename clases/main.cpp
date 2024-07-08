@@ -57,7 +57,7 @@ int main()
     vector<string> asignaturas = {"Matematicas", "Fisica", "Quimica"};
     vector<string> asignaturas2 = {"Historia"};
 
-    Profesor juan = Profesor("Juan", 45, asignaturas2);
+    Profesor juan = Profesor("Juan", 45, asignaturas2, "1234");
     Alumno pedro = Alumno("Pedro", 20, asignaturas);
 
     juan.getPerson();
