@@ -28,7 +28,7 @@ class Square
 class Circle
 {
     private:
-        int radius;
+        float radius;
         float area;
         float perimeter;
     public:
