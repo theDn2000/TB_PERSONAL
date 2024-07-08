@@ -33,16 +33,6 @@ class Profesor : public Person
     public:
         //Constructor
         Profesor(string name, int age, vector<string> asignaturas) : Person(name, age, asignaturas) {}
-        // Methods
-        string getProfesor()
-        {
-            cout << "Nombre: " << name << " Edad: " << age << " Asignaturas: ";
-            for (auto asignatura : asignaturas)
-            {
-                cout << asignatura << " ";
-            }
-            cout << endl;
-        } 
 };
 
 class Alumno : public Person
@@ -70,7 +60,7 @@ int main()
     Profesor juan = Profesor("Juan", 45, asignaturas2);
     Alumno pedro = Alumno("Pedro", 20, asignaturas);
 
-    juan.getProfesor();
+    juan.getPerson();
     pedro.getAlumno();
 
     return 0;
