@@ -28,7 +28,7 @@ class Square
 class Circle
 {
     private:
-        float radius;
+        int radius;
         float area;
         float perimeter;
     public:
@@ -37,7 +37,8 @@ class Circle
             if (radius < 0)
             {
                 cout << "El radio no puede ser negativo" << endl;
-                return;
+                // throw exception
+                throw "El radio no puede ser negativo";
             }
             else
             {
