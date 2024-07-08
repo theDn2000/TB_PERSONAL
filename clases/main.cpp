@@ -18,7 +18,7 @@ class Person
         }
         string getPerson()
         {
-            cout << "Nombre: " << name << " Edad: " << age << " Asignaturas: ";
+            cout << "Nombre: " << this->name << " Edad: " << this->age << " Asignaturas: ";
             for (auto asignatura : asignaturas)
             {
                 cout << asignatura << " ";
