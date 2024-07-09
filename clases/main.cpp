@@ -1,3 +1,64 @@
+#include "figuras.h"
+#include <iostream>
+
+int main(){
+    Cuadrado c{5}; // Create an instance of the concrete class
+    TrianguloEq t{5};
+    Pentagono p{5};
+
+    cout << "Cuadrado" << endl;
+    cout << "Area: " << c.getArea() << endl;
+    cout << "Perimetro: " << c.getPerimetro() << endl;
+    cout << "Diagonal: " << c.getDiagonal() << endl;
+    c.queSoy();
+
+    cout << "Triangulo" << endl;
+    cout << "Area: " << t.getArea() << endl;
+    cout << "Perimetro: " << t.getPerimetro() << endl;
+    cout << "Altura: " << t.getAltura() << endl;
+    t.queSoy();
+
+    cout << "Pentagono" << endl;
+    cout << "Area: " << p.getArea() << endl;
+    cout << "Perimetro: " << p.getPerimetro() << endl;
+    cout << "Apotema: " << p.getApotema() << endl;
+    p.queSoy();
+
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 #include <iostream>
 #include <cmath>
 
@@ -87,7 +148,7 @@ int main()
 
     cout << "La suma de los números complejos es: " << c4 + c5 << endl;
 }
-
+*/
 /*
 #include <iostream>
 #include <vector>
