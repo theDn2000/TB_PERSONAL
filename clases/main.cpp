@@ -30,17 +30,17 @@ int main(){
         {
         case 1:
             shared_ptr<Cuadrado> c = make_shared<Cuadrado>(Cuadrado{lado});
-            figuras.push_back(dynamic_cast<shared_ptr<Cuadrado>>(c));
+            figuras.push_back(c);
             n--;
             break;
         case 2:
             shared_ptr<TrianguloEq> t = make_shared<TrianguloEq>(TrianguloEq{lado});
-            figuras.push_back(dynamic_cast<shared_ptr<TrianguloEq>>(t));
+            figuras.push_back(c);
             n--;
             break;
         case 3:
             shared_ptr<Pentagono> p = make_shared<Pentagono>(Pentagono{lado});
-            figuras.push_back(dynamic_cast<shared_ptr<Pentagono>>(p));
+            figuras.push_back(c);
             n--;
             break;
         default:
