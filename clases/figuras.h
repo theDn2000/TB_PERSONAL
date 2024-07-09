@@ -36,7 +36,7 @@ public:
 class TrianguloEq : public FiguraGeometricaRegular {
 
 public:
-    TrianguloEq(float lado)
+    TrianguloEq(float lado);
 
     float getArea() const;
     float getAltura() const;
