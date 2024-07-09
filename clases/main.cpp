@@ -29,7 +29,7 @@ int main(){
         switch (opcion)
         {
         case 1:
-            figuras.push_back(shared_ptr<Cuadrado> c = make_shared<Cuadrado>(Cuadrado{lado}));
+            figuras.push_back(make_shared<Cuadrado>(Cuadrado{lado}));
             n--;
             break;
         case 2:
