@@ -1,6 +1,7 @@
 #include "figuras.h"
 #include <string>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
