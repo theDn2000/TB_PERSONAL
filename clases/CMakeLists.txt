@@ -3,6 +3,6 @@ project(clases)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(SOURCES main.cpp)
+set(SOURCES main.cpp figuras.cpp)
 
 add_executable(clases ${SOURCES})
