@@ -29,15 +29,15 @@ int main(){
         switch (opcion)
         {
         case 1:
-            figuras.push_back(dynamic_cast<shared_ptr<Cuadrado>>(new Cuadrado{lado}));
+            figuras.push_back(dynamic_cast<shared_ptr<Cuadrado>>(make_shared<Cuadrado>(lado)));
             n--;
             break;
         case 2:
-            figuras.push_back(dynamic_cast<shared_ptr<TrianguloEq>>(new TrianguloEq{lado}));
+            figuras.push_back(dynamic_cast<shared_ptr<TrianguloEq>>(make_shared<TrianguloEq>(lado)));
             n--;
             break;
         case 3:
-            figuras.push_back(dynamic_cast<shared_ptr<Pentagono>>(new Pentagono{lado}));
+            figuras.push_back(dynamic_cast<shared_ptr<Pentagono>>(make_shared<Pentagono>(lado)));
             n--;
             break;
         default:
