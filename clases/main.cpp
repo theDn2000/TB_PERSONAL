@@ -33,13 +33,11 @@ int main(){
             n--;
             break;
         case 2:
-            shared_ptr<TrianguloEq> t = make_shared<TrianguloEq>(TrianguloEq{lado});
-            figuras.push_back(c);
+            figuras.push_back(make_shared<TrianguloEq>(TrianguloEq{lado}));
             n--;
             break;
         case 3:
-            shared_ptr<Pentagono> p = make_shared<Pentagono>(Pentagono{lado});
-            figuras.push_back(c);
+            figuras.push_back(make_shared<Pentagono>(Pentagono{lado}));
             n--;
             break;
         default:
