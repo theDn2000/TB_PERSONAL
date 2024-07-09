@@ -4,6 +4,66 @@
 using namespace std;
 
 int main(){
+
+    cout << "Cuantas figuras quieres crear?" << endl;
+    int n;
+    cin >> n;
+
+    vector<shared_ptr<FiguraGeometricaRegular>> figuras;
+
+    while (n > 0)
+    {
+        cout << "Que figura quieres crear?" << endl;
+        cout << "1. Cuadrado" << endl;
+        cout << "2. Triangulo" << endl;
+        cout << "3. Pentagono" << endl;
+        int opcion;
+        cin >> opcion;
+
+        cout << "Cuanto mide el lado?" << endl;
+        float lado;
+        cin >> lado;
+
+        switch (opcion)
+        {
+        case 1:
+            figuras.push_back(dynamic_cast<shared_ptr<Cuadrado>>(new Cuadrado{lado}));
+            n--;
+            break;
+        case 2:
+            figuras.push_back(dynamic_cast<shared_ptr<TrianguloEq>>(new TrianguloEq{lado}));
+            n--;
+            break;
+        case 3:
+            figuras.push_back(dynamic_cast<shared_ptr<Pentagono>>(new Pentagono{lado}));
+            n--;
+            break;
+        default:
+            cout << "Opcion no valida" << endl;
+            break;
+        }
+    }
+
+    for (auto figura : figuras)
+    {
+        cout << "Area: " << figura->getArea() << endl;
+        cout << "Perimetro: " << figura->getPerimetro() << endl;
+        figura->queSoy();
+        if (dynamic_cast<Cuadrado*>(figura.get()))
+        {
+            cout << "Diagonal: " << dynamic_cast<Cuadrado*>(figura.get())->getDiagonal() << endl;
+        }
+        else if (dynamic_cast<TrianguloEq*>(figura.get()))
+        {
+            cout << "Altura: " << dynamic_cast<TrianguloEq*>(figura.get())->getAltura() << endl;
+        }
+        else if (dynamic_cast<Pentagono*>(figura.get()))
+        {
+            cout << "Apotema: " << dynamic_cast<Pentagono*>(figura.get())->getApotema() << endl;
+        }
+    }
+
+    /*
     Cuadrado c{5}; // Create an instance of the concrete class
     TrianguloEq t{5};
     Pentagono p{5};
@@ -25,6 +85,7 @@ int main(){
     cout << "Perimetro: " << p.getPerimetro() << endl;
     cout << "Apotema: " << p.getApotema() << endl;
     p.queSoy();
+    */
 
     
     return 0;
