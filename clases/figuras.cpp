@@ -45,22 +45,17 @@ float Cuadrado::getDiagonal() const {
 float Cuadrado::getArea() const {
     return lado * lado;
 }
-
 void Cuadrado::queSoy() {
     cout << "Soy un cuadrado" << endl;
 }
 
 TrianguloEq::TrianguloEq(float lado): FiguraGeometricaRegular(3, lado) {}
-
-
 float TrianguloEq::getArea() const {
     return (sqrt(3) / 4) * lado * lado;
 }
-
 float TrianguloEq::getAltura() const {
     return (sqrt(3) / 2) * lado;
 }
-
 void TrianguloEq::queSoy() {
     cout << "Soy un triangulo equilatero" << endl;
 }
@@ -70,11 +65,9 @@ Pentagono::Pentagono(float lado): FiguraGeometricaRegular(5, lado) {}
 float Pentagono::getArea() const {
     return (5 * lado * lado) / (4 * tan(3.1416 / 5));
 }
-
 float Pentagono::getApotema() const {
     return lado / (2 * tan(3.1416 / 5));
 }
-
 void Pentagono::queSoy() {
     cout << "Soy un pentagono" << endl;
 }
