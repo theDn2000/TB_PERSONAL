@@ -24,7 +24,7 @@ public:
 class Cuadrado : public FiguraGeometricaRegular {
 
 public:
-    Cuadrado(float lado): FiguraGeometricaRegular(4, lado) {};
+    Cuadrado(float lado);
 
     float getArea() const; //comun en las hijas pero para cada una es distinta
     float getDiagonal() const; //comun solo de esta hija
@@ -48,7 +48,7 @@ public:
 class Pentagono : public FiguraGeometricaRegular {
 
 public:
-    Pentagono(float lado): FiguraGeometricaRegular(5, lado) {};
+    Pentagono(float lado);
 
     float getArea() const;
     float getApotema() const;
