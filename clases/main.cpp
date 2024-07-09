@@ -1,6 +1,8 @@
 #include "figuras.h"
 #include <iostream>
 
+using namespace std;
+
 int main(){
     Cuadrado c{5}; // Create an instance of the concrete class
     TrianguloEq t{5};
